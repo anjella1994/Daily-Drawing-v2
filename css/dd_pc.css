@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 그림 한 칸 2vw*2vw */
+
+/* 전체 레이아웃 */
+body {
+    margin: 0;
+}
+#container {
+    width: 100vw;
+    height: var(--content-height);
+    background: #f5f5f5;
+}
+#title {
+    position:fixed;
+    width: 100vw;
+    height: 4.32vw;
+}
+#calendar {
+    position: fixed;
+    bottom:0;
+    width: 90vw;
+    height: 47.5vw; /*23행 + 요일 1.5vw*/
+
+    display: grid;
+    grid-template-columns: 5vw 11vw repeat(37, 2vw) 10vw;
+    grid-template-rows: 1.5vw repeat(23, 2vw);
+
+    z-index:3;
+}
+#thumbnails {
+    position: fixed;
+    left : 16vw;
+    bottom:0;
+    width: 74vw;
+
+    filter:grayscale(100%);
+    opacity:0.8;
+
+    z-index: 0;
+}
+
+/* 캘린더에 선 넣기 */
+.day {
+    border-bottom: 2px solid #777;
+}
+#calendar div.line {
+    border-bottom: 2px solid #777;
+    z-index:5;
+}
+.year {
+    border-right: 1px solid #555;
+    background-color: #ddd;
+}
+.month {
+    border-right: 2px solid #D15837;
+    border-bottom: 1px dashed #ccc;
+}
+.blank {
+    border-left: 2px solid #D15837;
+    z-index:0;
+    background-color: #ccc;
+}
+
+/* 캘린더 마우스 오버 시 날짜 표시 */
+.image div {
+    opacity:0;
+}
+.image div:hover {
+    opacity:1;
+    background: #D15837;
+    color: white;
+    font-style:italic;
+    font-weight:500;
+}
+
+
+/* 폰트 모음 */
+#title {
+    font: normal normal 500 2.25rem/4.32vw Karla;
+    color: #555;
+    letter-spacing: 0.225rem;
+    text-align: center;
+}
+.day {
+    font: normal normal 300 1rem/1.5vw Karla;
+    color: #333;
+    text-align: center;
+}
+.year {
+    font: normal normal bold 1rem/2vw Inter;
+    color: #555;
+    text-align: center;
+}
+.month {
+    font: normal normal 300 1rem/2vw Karla;
+    color: #333;
+    text-align: right;
+    padding-right:0.5vw;
+}
+.image div {
+    font: normal normal 200 0.9rem/2vw Inter;
+    text-align:center;
+}
