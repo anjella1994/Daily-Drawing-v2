@@ -7,21 +7,22 @@
 /* 전체 레이아웃 */
 body {
     margin: 0;
-}
-#container {
-    width: 100vw;
-    height: var(--content-height);
     background: #f5f5f5;
 }
+#container {
+    position:relative;
+    width: 100vw;
+}
+
 #title {
-    position:fixed;
+    position: relative;
     width: 100vw;
     height: 4.32vw;
 }
+
 #calendar {
-    position: fixed;
-    bottom:0;
-    width: 90vw;
+    position: relative;
+    width: 100vw;
     height: 47.5vw; /*23행 + 요일 1.5vw*/
 
     display: grid;
@@ -30,10 +31,11 @@ body {
 
     z-index:3;
 }
+
 #thumbnails {
-    position: fixed;
+    position: absolute;
+    top: 5.82vw;
     left : 16vw;
-    bottom:0;
     width: 74vw;
 
     filter:grayscale(100%);
@@ -52,7 +54,6 @@ body {
 }
 .year {
     border-right: 1px solid #555;
-    background-color: #ddd;
 }
 .month {
     border-right: 2px solid #D15837;
@@ -61,7 +62,7 @@ body {
 .blank {
     border-left: 2px solid #D15837;
     z-index:0;
-    background-color: #ccc;
+    background-color: #ddd;
 }
 
 /* 캘린더 마우스 오버 시 날짜 표시 */
