@@ -26,7 +26,7 @@ body {
     height: 47.5vw; /*23행 + 요일 1.5vw*/
 
     display: grid;
-    grid-template-columns: 5vw 11vw repeat(37, 2vw) 10vw;
+    grid-template-columns: 4vw 9vw repeat(37, 2vw) 13vw;
     grid-template-rows: 1.5vw repeat(23, 2vw);
 
     z-index:3;
@@ -35,7 +35,7 @@ body {
 #thumbnails {
     position: absolute;
     top: 5.82vw;
-    left : 16vw;
+    left : 13vw;
     width: 74vw;
 
     filter:grayscale(100%);
@@ -104,4 +104,15 @@ body {
 .image div {
     font: normal normal 200 0.9rem/2vw Inter;
     text-align:center;
+}
+
+@media screen and (min-width: 1680px) {
+    html {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width:1080px) and (max-width: 1680px) {
+    html {
+        font-size: 13px;
+    }
 }
