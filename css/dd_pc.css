@@ -13,13 +13,11 @@ body {
     position:relative;
     width: 100vw;
 }
-
 #title {
     position: relative;
     width: 100vw;
     height: 4.32vw;
 }
-
 #calendar {
     position: relative;
     width: 100vw;
@@ -31,7 +29,6 @@ body {
 
     z-index:3;
 }
-
 #thumbnails {
     position: absolute;
     top: 5.82vw;
