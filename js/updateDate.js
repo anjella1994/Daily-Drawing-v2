@@ -1,4 +1,4 @@
-const divHeight = document.querySelector("#table div").clientHeight;
+const divHeight = document.querySelector("#table div").clientHeight + 1;
 
 const years = [2020, 2021, 2022];
 const months = ["june", "july", "august", "september", "october","november", "december", 
