@@ -23,6 +23,10 @@ body {
     grid-template-rows: repeat(648, 15vw);
     z-index:3;
 }
+#thumbnails {
+    position: absolute;
+    top: 30vw;
+}
 
 /* 헤더 레이아웃 */
 #title {
@@ -59,6 +63,14 @@ body {
     text-align: center;
 }
 
+/* 썸네일 설정 */
+img {
+    position:relative;
+    left: 10vw;
+    display: block;
+    width: 45vw;
+}
+
 /* 선 그리기 */
 #yearMonth {
     border-top: 1px solid #777;
@@ -77,6 +89,8 @@ body {
 .first {
     border-top: 1px solid #777 !important;
 }
+
+/* 썸네일 */
 
 /* 폰트 */
 #title {
