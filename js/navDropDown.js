@@ -18,7 +18,12 @@ const navDivs = document.querySelectorAll("nav div.month")
 for (let i = 0 ; i < 23 ; i++) {
     navDivs[i].addEventListener("click", function() {
         const scrollTo = monthBoundary[i];
-        window.scrollTo(0, scrollTo);
+        const slowScrollDuration = 2000;
+        window.scrollTo({
+            top: scrollTo,
+            behavior: "smooth",
+            duration: slowScrollDuration
+        });
         nav.style.height = "0px";
         navOn = false;
     })
