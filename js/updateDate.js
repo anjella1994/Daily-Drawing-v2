@@ -42,13 +42,13 @@ updateDate(y, m);
 window.addEventListener("scroll", function() {
     let h = window.scrollY;
     for (let i = years.length - 1; i >= 0; i--) {
-        if (h >= yearBoundary[i]) {
+        if (h >= yearBoundary[i] - 1) {
             y = years[i];
             break;
         }
     }
     for (let i = months.length - 1; i >= 0; i--) {
-        if (h >= monthBoundary[i]) {
+        if (h >= monthBoundary[i] - 1) {
             m = months[i];
             break;
         }
