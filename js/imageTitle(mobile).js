@@ -1,4 +1,4 @@
-const titleboxs = document.querySelectorAll("#table div:nth-child(3n):not(.empty)");
+const titleboxs = document.querySelectorAll("#calendar div:nth-child(4n):not(.empty)");
 
 const titles = [
     "굳은 날개 ", 

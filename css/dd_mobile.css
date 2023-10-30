@@ -2,33 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 전체 레이아웃 */
+
 body {
-    position:relative;
     margin: 0;
-    background: #f5f5f5;
-    height: calc(30vw + 15vw * 674);
-}
-#header {
-    position: sticky;
-    top: 0;
-    background: #f5f5f5;
-    z-index:5;
-}
-#table {
-    position: absolute;
-    top: 30vw;
-    display: grid;
-    grid-template-columns: 10vw 15vw 75vw;
-    grid-template-rows: repeat(648, 15vw);
-    z-index:3;
-}
-#thumbnails {
-    position: absolute;
-    top: 30vw;
+    background-color: #f5f5f5;
+    position: relative;
+    height: 10140vw;
 }
 
-/* 헤더 레이아웃 */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #f5f5f5;
+    z-index: 10;
+}
 #title {
     height: 20vw;
 }
@@ -36,61 +23,84 @@ body {
     height: 10vw;
     position: relative;
 }
-.year {
+#yearMonth .year {
     position: absolute;
-    right: 52vw;
+    right: 52.5vw;
 }
-.month {
+#yearMonth .month {
     position: absolute;
-    left: 52vw;
+    left: 52.5vw;
 }
 
-/* 헤더 드롭다운 레이아웃 */
-#dropDown {
+nav {
     position: sticky;
-    top: calc(30vw + 2px);
-    width: 100vw;
-    background-color: #ccc;
+    top: 30vw;
+    
+    background-color: #eee;
     z-index: 10;
+    display: grid;
+    grid-template-columns: 50vw 16.6vw 16.6vw 16.7vw;
+    grid-template-rows: repeat(9, 10vw);
 
     height: 0;
     overflow: hidden;
     transition: height ease 1s 0s;
 }
-#dropDown div {
-    position: relative;
-    height: 7vw;
-    text-align: center;
+nav div {
+    border-right: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
 }
 
-/* 썸네일 설정 */
-img {
-    position:relative;
-    left: 10vw;
+#calendar {
+    position: absolute;
+    top: 30vw;
+    height: 10110vw;
+    display: grid; 
+    grid-template-columns: 9vw 9vw 15vw 67vw;
+    grid-template-rows: repeat(674,15vw);
+}
+#thumbnails {
+    position: absolute;
+    top: 30vw;
+    left: 18vw;
+    width: 15vw;
+    height: 10110vw;
+    overflow: hidden;
+    z-index: 0;
+}
+#thumbnails img {
     display: block;
-    width: 45vw;
+    width: 15vw;
+    height: 1500vw;
 }
 
-/* 선 그리기 */
+/* 선 그리기, 면 채우기 */
 #yearMonth {
+    box-sizing: border-box;
     border-top: 1px solid #777;
     border-bottom: 1px solid #777;
 }
-#table div {
-    border-top: 1px solid #ccc;
+#calendar div {
     box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
 }
-#table div:nth-child(3n+1) {
-    border-right: 1px solid #d15837;
-}
-#table div:nth-child(3n+2) {
+#calendar div:nth-child(4n+1) {
     border-right: 1px solid #ccc;
 }
-.first {
-    border-top: 1px solid #777 !important;
+#calendar div:nth-child(4n+2) {
+    border-right: 2px solid #D15837;
+    background-color: #eee;
 }
-
-/* 썸네일 */
+#calendar div:nth-child(4n+3) {
+    border-right: 1px solid #ccc;
+    z-index: 5;
+}
+#calendar div.last {
+    border-bottom: 2px solid #777 !important;
+}
+#calendar div.empty {
+    background-color: #ddd;
+}
 
 /* 폰트 */
 #title {
@@ -102,24 +112,37 @@ img {
 .year {
     font: normal normal bold 0.9rem/10vw Inter;
     color: #555;
-    text-align: center;
+    text-align: left;
 }
 .month {
     font: normal normal 300 1rem/10vw Karla;
     color: #333;
     text-align: right;
 }
-#dropDown .year {
-    font: normal normal bold 0.7rem/8vw Inter;
+
+nav div:nth-child(4n+1) {
+    font: normal normal bold 0.9rem/10vw Inter;
+    color: #555;
+    text-align: right;
+    padding-right: 2.5vw;
 }
-#dropDown .month {
-    font: normal normal 300 0.8rem/8vw Karla; 
+nav div:nth-child(4n+2), nav div:nth-child(4n+3), nav div:nth-child(4n) {
+    font: normal normal 300 1rem/10vw Karla;
+    color: #333;
+    text-align: left;
+    padding-left: 2.5vw;
 }
-#table div:nth-child(3n+1) {
+
+#calendar div:nth-child(4n+1) {
+    font: normal normal 500 0.9rem/15vw Inter;
+    text-align: center;
+    color: #555;
+}
+#calendar div:nth-child(4n+2) {
     font: normal normal 200 0.9rem/15vw Inter;
     text-align: center;
 }
-#table div:nth-child(3n) {
+#calendar div:nth-child(4n) {
     font: normal normal 200 0.7rem/15vw "Gothic A1";
     text-align: right;
     padding-right: 3vw;
