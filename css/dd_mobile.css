@@ -46,9 +46,18 @@ nav {
     overflow: hidden;
     transition: height ease 1s 0s;
 }
+nav .ttw{
+    grid-row: 1/4;
+}
+nav .tto{
+    grid-row: 4/8;
+}
+nav .ttt {
+    grid-row: 8/10;
+}
 nav div {
-    border-right: 1px dashed #ccc;
-    border-bottom: 1px dashed #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 #calendar {
@@ -120,13 +129,13 @@ nav div {
     text-align: right;
 }
 
-nav div:nth-child(4n+1) {
+nav .year {
     font: normal normal bold 0.9rem/10vw Inter;
     color: #555;
     text-align: right;
     padding-right: 2.5vw;
 }
-nav div:nth-child(4n+2), nav div:nth-child(4n+3), nav div:nth-child(4n) {
+nav .month {
     font: normal normal 300 1rem/10vw Karla;
     color: #333;
     text-align: left;
