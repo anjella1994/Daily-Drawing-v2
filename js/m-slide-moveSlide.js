@@ -46,9 +46,9 @@ document.addEventListener("touchend", function(e){
 });
 
 function handleSwipe() {
-    if (touchStartX - touchEndX > 70) {
+    if (touchStartX - touchEndX > 100) {
         goRight();
-    } else if (touchEndX - touchStartX > 70) {
+    } else if (touchEndX - touchStartX > 100) {
         goLeft();
     }
 }
