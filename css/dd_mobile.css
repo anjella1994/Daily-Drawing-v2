@@ -111,6 +111,15 @@ nav div {
     background-color: #ddd;
 }
 
+/* 이미지 슬라이드 */
+#imageSlide img {
+    width: 100vw;
+}
+#imageDesc {
+    position: absolute;
+    bottom: 0;
+}
+
 /* 폰트 */
 #title {
     font: normal normal 500 2rem/20vw Karla;
@@ -157,7 +166,3 @@ nav .month {
     padding-right: 3vw;
 }
 
-/* 스크롤 트랜지션 */
-html {
-    scroll-behavior: smooth;
-}

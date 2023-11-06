@@ -1,3 +1,9 @@
+let previousWidth = window.innerWidth;
+
 window.addEventListener("resize", function() {
-    location.reload();
+    const currentWidth = window.innerWidth;
+    if(currentWidth !== previousWidth) {
+        location.reload();
+    }
+    previousWidth = currentWidth;
 });
