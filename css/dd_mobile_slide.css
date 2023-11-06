@@ -16,23 +16,41 @@ header {
     background-color: #f5f5f5;
     z-index: 10;
 }
+
 #title {
     height: 20vw;
 }
+
 #yearMonth {
     height: 10vw;
     position: relative;
+    text-align: center;
+    background-color: #eee;
+}
+#yearMonth .left {
+    display:inline-block;
+    position: absolute;
+    left: 0;
+    line-height: 10.5vw;
+    width: 10vw;
+    height: 10vw;
+}
+#yearMonth .right {
+    display:inline-block;
+    position: absolute;
+    right: 0;
+    line-height: 10.5vw;
+    width: 10vw;
+    height: 10vw;
 }
 #yearMonth .year {
     position: absolute;
-    right: 52.5vw;
+    right: 65vw;
 }
-#yearMonth .month {
+#yearMonth .date {
     position: absolute;
-    left: 52.5vw;
+    left: 65vw;
 }
-
-
 
 /* 선 그리기, 면 채우기 */
 #yearMonth {
@@ -40,17 +58,19 @@ header {
     border-top: 1px solid #777;
     border-bottom: 1px solid #777;
 }
+#imageTitle {
+    box-sizing: border-box;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+}
 
 
 /* 이미지 슬라이드 */
-#imageSlide {
-    height: 130vw;
+#image {
+    line-height: 0;
 }
-#imageSlide img {
+#image img {
     width: 100vw;
-}
-#imageDesc .day{
-    height: 10vw;
 }
 #imageTitle {
     height: 10vw;
@@ -73,10 +93,14 @@ header {
     color: #333;
     text-align: right;
 }
-.day {
-    font: normal normal 500 0.9rem/15vw Inter;
-    text-align: center;
+.date {
+    font: normal normal 500 0.9rem/10vw Inter;
+    text-align: left;
     color: #555;
+}
+.day {
+    font: normal normal 200 0.9rem/10vw Inter;
+    text-align: center;
 }
 #imageTitle {
     font: normal normal 200 0.9rem/10vw "Gothic A1";

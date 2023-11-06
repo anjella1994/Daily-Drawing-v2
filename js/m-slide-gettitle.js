@@ -1,3 +1,4 @@
+const imageTitle = document.querySelector("#imageTitle");
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -675,5 +676,9 @@ const titles = [
     "나가지 못하는 아이들", 
 ];
 
-const imageTitle = document.querySelector("#imageTitle");
-imageTitle.textContent = titles[rowNum];
+function inputTitle(i) {
+    imageTitle.textContent = titles[i];
+}
+
+inputTitle(rowNum);
+
