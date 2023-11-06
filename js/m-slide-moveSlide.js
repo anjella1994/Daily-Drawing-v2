@@ -46,10 +46,10 @@ document.addEventListener("touchend", function(e){
 });
 
 function handleSwipe() {
-    if (touchStartX - touchEndX > 50) {
-        goLeft();
-    } else if (touchEndX - touchStartX > 50) {
+    if (touchStartX - touchEndX > 70) {
         goRight();
+    } else if (touchEndX - touchStartX > 70) {
+        goLeft();
     }
 }
 
