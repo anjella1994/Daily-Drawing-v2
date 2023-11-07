@@ -77,10 +77,6 @@ header {
     border-bottom: 1px solid #777;
     background-color: #eee;
 }
-#image {
-    box-sizing: border-box;
-    border-bottom: 1px solid #ccc;
-}
 
 /* 폰트 */
 #title a{
