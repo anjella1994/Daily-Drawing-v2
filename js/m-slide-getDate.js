@@ -4,10 +4,14 @@ let rowNum = Math.floor(clickedDivNum/4);
 let currentFullDate = new Date('2020-06-19');
 
 //날짜 계산 함수 선언
-function getDate(rowNum) {
-    //현재 날짜 계산 
+function getDate(i) {
     const startDate = new Date('2020-06-19');
-    currentFullDate.setDate(startDate.getDate() + rowNum);
+    const endDate = new Date('2022-04-23');
+    const dateArray = [];
+    for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
+        dateArray.push(new Date(date));
+    }
+    currentFullDate = dateArray[i];
 }
 
 function updateCurrentDate(date) {
