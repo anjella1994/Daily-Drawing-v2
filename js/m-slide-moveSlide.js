@@ -16,8 +16,8 @@ function goLeft() {
     localStorage.setItem("clickedDivNum", rowNum * 4);
     getDate(rowNum);
     updateCurrentDate(currentFullDate);
-    inputImage(currentFullDate);
     inputTitle(rowNum);
+    inputImage(currentFullDate);
     window.location.reload();
 };
 function goRight() {
@@ -29,8 +29,8 @@ function goRight() {
     localStorage.setItem("clickedDivNum", rowNum * 4);
     getDate(rowNum);
     updateCurrentDate(currentFullDate);
-    inputImage(currentFullDate);
     inputTitle(rowNum);
+    inputImage(currentFullDate);
     window.location.reload();
 };
 
