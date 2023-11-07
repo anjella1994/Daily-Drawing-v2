@@ -10,7 +10,7 @@ body {
     background: #f5f5f5;
 }
 #container {
-    position:relative;
+    position: relative;
     width: 100vw;
 }
 #title {
@@ -74,6 +74,15 @@ body {
     font-weight: 500;
 }
 
+/* 캘린더 마우스 오버 시 나타나는 제목 */
+.imageTitle {
+    position: absolute;
+    /* top, left, height는 자바스크립트로 지정*/
+    background-color: #555;
+    color: #f0f0f0;
+    padding: 0 10px;
+    z-index: 5;
+}
 
 /* 폰트 모음 */
 #title {
@@ -101,6 +110,9 @@ body {
 .image div {
     font: normal normal 200 0.9rem/2vw Inter;
     text-align:center;
+}
+.imageTitle {
+    font: normal normal 400 0.8rem/2vw "Gothic A1";
 }
 
 @media screen and (min-width: 1680px) {

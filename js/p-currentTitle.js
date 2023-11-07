@@ -1,5 +1,6 @@
-const titleboxs = document.querySelectorAll("#calendar div:nth-child(4n):not(.empty)");
+const container = document.getElementById("container");
 
+const images = document.querySelectorAll("div.image:not(.empty)");
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -186,6 +187,11 @@ const titles = [
     "쓰지 않은 마법", 
     "이미 있는 장소는 꿈꾸지 않는다", 
     "소원의 무게", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "여유의 모습", 
     "여전히 나누고 싶은 것", 
     "향기를 가로막는", 
@@ -378,6 +384,11 @@ const titles = [
     "좋아하는 맛으로", 
     "지금의 음", 
     "가짜 별", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "차오르는", 
     "세 개의 시간", 
     "투명한 목적지", 
@@ -447,6 +458,11 @@ const titles = [
     "선의 감각", 
     "untitled", 
     "헤어진 모습 그대로 ", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "untitled", 
     "untitled", 
     "titling", 
@@ -542,6 +558,11 @@ const titles = [
     "white imitation", 
     "고여 있던 것들이 노래가 되러 ", 
     "마음 만한 집들", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "years ago (day1)", 
     "years ago (day2)", 
     "years ago (day3)", 
@@ -576,6 +597,9 @@ const titles = [
     "cant touch", 
     "최대한 작고 얇게", 
     "벽과 날개", 
+    "",
+    "",
+    "",
     "no one", 
     "from above", 
     "거짓말을 하고 있는 쪽은", 
@@ -623,6 +647,9 @@ const titles = [
     "가장 개인적인 것들", 
     "behind your thought", 
     "자른 꿈 사이로 ", 
+    "",
+    "",
+    "",
     "I'm not a destination", 
     "모자란 만큼", 
     "시간의 감각을 기억해 내 ", 
@@ -631,6 +658,7 @@ const titles = [
     "untitled", 
     "Berlin Home Café (day2)", 
     "Berlin Home Café (day3)", 
+    "",
     "Berlin Home Café (day4)", 
     "Berlin Home Café (day5)", 
     "Berlin Home Café (day6)", 
@@ -650,6 +678,33 @@ const titles = [
     "나가지 못하는 아이들", 
 ];
 
-for (i = 0; i < titles.length; i++) {
-    titleboxs[i].textContent = titles[i];
-}
+//마우스 오버 한 이미지 
+let currentImage; 
+//마우스 오버 시 나타나는 제목 
+let currentTitle; 
+
+images.forEach((image, i) => {
+    if(!image.classList.contains("rest")){
+        image.addEventListener("mouseenter", () => {
+            //마우스 오버한 이미지 가져오기
+            currentImage = image;
+            //제목 엘리먼트 생성 및 스타일 설정 
+            currentTitle = document.createElement("div");
+            currentTitle.classList.add("imageTitle");
+            //제목 엘리먼트에 내용 입력 
+            currentTitle.textContent = `${titles[i]}`;
+            //제목 엘리먼트 위치 및 높이 설정 
+            const currentRect = currentImage.getBoundingClientRect();
+            currentTitle.style.left = `${currentRect.left + currentRect.width}px`;
+            currentTitle.style.top = `${currentRect.top}px`;
+            currentTitle.style.height = `${currentRect.height}px`;
+            currentTitle.style.lineHeight = `${currentRect.height}px`;
+            //제목 엘리먼트 추가
+            container.appendChild(currentTitle);
+        });
+        image.addEventListener("mouseleave", () => {
+            container.removeChild(currentTitle);
+        }); 
+    } 
+});
+
