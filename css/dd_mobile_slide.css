@@ -66,6 +66,20 @@ header {
     width: 100vw;
 }
 
+/* 뒤로 가기 */
+#back {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 10vw;
+    padding-left: 3vw;
+    background-color: rgba(245,245,245,0.9);
+}
+#back-bg {
+    width: 100vw;
+    height: 10vw;
+}
+
 /* 선 그리기, 면 채우기 */
 #yearMonth {
     box-sizing: border-box;
@@ -76,6 +90,10 @@ header {
     box-sizing: border-box;
     border-bottom: 1px solid #777;
     background-color: #eee;
+}
+#back {
+    box-sizing: border-box;
+    border-bottom: 1px solid #777;
 }
 
 /* 폰트 */
@@ -107,6 +125,10 @@ header {
 #imageTitle {
     font: normal normal 200 0.9rem/10vw "Gothic A1 200";
     text-align: center;
+}
+.left, .right, #back {
+    font: normal normal 300 1rem/10vw Karla;
+    color: #333;
 }
 
 
