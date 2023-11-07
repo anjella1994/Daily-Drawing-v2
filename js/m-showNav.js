@@ -16,15 +16,13 @@ yearMonth.addEventListener("click", function() {
 //드롭다운 내 연, 월 클릭하면, 해당 날짜로 스크롤 이동
 const navDivs = document.querySelectorAll("nav div.month")
 for (let i = 0 ; i < 23 ; i++) {
-    navDivs[i].addEventListener("click", function() {
+    navDivs[i].addEventListener("click", () => {
         const scrollTo = monthBoundary[i];
-        const slowScrollDuration = 2000;
         window.scrollTo({
             top: scrollTo,
-            behavior: "smooth",
-            duration: slowScrollDuration
+            behavior: "smooth"
         });
         nav.style.height = "0px";
         navOn = false;
-    })
+    });
 }

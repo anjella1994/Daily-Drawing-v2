@@ -1,6 +1,4 @@
-const container = document.getElementById("container");
-
-const images = document.querySelectorAll("div.image:not(.empty)");
+const titleboxs = document.querySelectorAll("#calendar div:nth-child(4n)");
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -187,6 +185,11 @@ const titles = [
     "쓰지 않은 마법", 
     "이미 있는 장소는 꿈꾸지 않는다", 
     "소원의 무게", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "여유의 모습", 
     "여전히 나누고 싶은 것", 
     "향기를 가로막는", 
@@ -225,10 +228,10 @@ const titles = [
     "액체가 되기 전에", 
     "대화", 
     "다른 나라", 
-    "잠으로 꿈을 잊고 (imitation drawing _ 마티스 <Femme endormie>)", 
-    "빛으로 떠난 사람 (imitation drawing _ 마티스 <Studio under the Eaves>)", 
-    "그려지는 사람의 근황 (imitation drawing _ 마티스 <The Painting Lesson>)", 
-    "잊은 것이 쌓이는 곳 (imitation drawing _ 마티스 <My room in Ajaccio>)", 
+    "잠으로 꿈을 잊고 (imitation drawing)", 
+    "빛으로 떠난 사람 (imitation drawing)", 
+    "그려지는 사람의 근황 (imitation drawing)", 
+    "잊은 것이 쌓이는 곳 (imitation drawing)", 
     "다시 이데아", 
     "혼자만의 달 ", 
     "날아오르는 방법", 
@@ -379,6 +382,11 @@ const titles = [
     "좋아하는 맛으로", 
     "지금의 음", 
     "가짜 별", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "차오르는", 
     "세 개의 시간", 
     "투명한 목적지", 
@@ -448,6 +456,11 @@ const titles = [
     "선의 감각", 
     "untitled", 
     "헤어진 모습 그대로 ", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "untitled", 
     "untitled", 
     "titling", 
@@ -543,6 +556,11 @@ const titles = [
     "white imitation", 
     "고여 있던 것들이 노래가 되러 ", 
     "마음 만한 집들", 
+    "",
+    "",
+    "",
+    "",
+    "",
     "years ago (day1)", 
     "years ago (day2)", 
     "years ago (day3)", 
@@ -577,6 +595,9 @@ const titles = [
     "cant touch", 
     "최대한 작고 얇게", 
     "벽과 날개", 
+    "",
+    "",
+    "",
     "no one", 
     "from above", 
     "거짓말을 하고 있는 쪽은", 
@@ -624,6 +645,9 @@ const titles = [
     "가장 개인적인 것들", 
     "behind your thought", 
     "자른 꿈 사이로 ", 
+    "",
+    "",
+    "",
     "I'm not a destination", 
     "모자란 만큼", 
     "시간의 감각을 기억해 내 ", 
@@ -632,6 +656,7 @@ const titles = [
     "untitled", 
     "Berlin Home Café (day2)", 
     "Berlin Home Café (day3)", 
+    "",
     "Berlin Home Café (day4)", 
     "Berlin Home Café (day5)", 
     "Berlin Home Café (day6)", 
@@ -651,43 +676,6 @@ const titles = [
     "나가지 못하는 아이들", 
 ];
 
-let currentImage;
-let imageIndex;
-
-let currentRect;
-let divLeft;
-let divTop;
-let divWidth;
-
-images.forEach((image, i) => {
-    image.addEventListener("mouseenter", function() {
-        //마우스 올린 날짜 박스의 위치와 가로 길이 측정 
-        currentImage = image;
-        imageIndex = i;
-        currentRect = currentImage.getBoundingClientRect();
-        divLeft = currentRect.left;
-        divTop = currentRect.top;
-        divWidth = currentRect.width;
-        
-        //새로운 제목 추가 
-        imageTitle = document.createElement("div");
-        imageTitle.classList.add("imagetitle");
-
-        imageTitle.textContent = `${titles[i]}`;
-        imageTitle.style.position = "absolute";
-        imageTitle.style.left = `${divLeft + divWidth}px`;
-        imageTitle.style.top = `${divTop}px`;
-
-        imageTitle.style.backgroundColor = "#555";
-        imageTitle.style.height = `${currentRect.height}px`;
-        imageTitle.style.padding = "0 10px 0 10px";
-        imageTitle.style.color = "#f0f0f0";
-        imageTitle.style.font = `normal normal 400 0.8rem/${currentRect.height}px "Gothic A1"`;
-        imageTitle.style.zIndex = 5;
-        container.appendChild(imageTitle);
-    });
-    image.addEventListener("mouseleave", function() {
-        container.removeChild(imageTitle);
-    })
-});
-
+for (i = 0; i < titles.length; i++) {
+    titleboxs[i].textContent = titles[i];
+}

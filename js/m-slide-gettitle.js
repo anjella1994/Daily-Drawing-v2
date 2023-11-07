@@ -675,10 +675,7 @@ const titles = [
     "small dream", 
     "나가지 못하는 아이들", 
 ];
-
 function inputTitle(i) {
     imageTitle.textContent = titles[i];
 }
-
 inputTitle(rowNum);
-
