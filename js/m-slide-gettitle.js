@@ -676,6 +676,10 @@ const titles = [
     "나가지 못하는 아이들", 
 ];
 function inputTitle(i) {
-    imageTitle.textContent = titles[i];
-}
+    if (titles[i] !== "") {
+        imageTitle.textContent = titles[i];
+    } else {
+        imageTitle.textContent = "休(day off)"
+    }
+}    
 inputTitle(rowNum);

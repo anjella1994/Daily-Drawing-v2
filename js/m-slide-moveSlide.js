@@ -46,7 +46,7 @@ document.addEventListener("touchstart", (e) => {
 document.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].clientX;
     touchEndY = e.changedTouches[0].clientY;
-    if (Math.abs(touchStartY - touchEndY) < 10) { //수직 이동이 거의 없을 때만 실행 
+    if (Math.abs(touchStartY - touchEndY) < 20) { //수직 이동이 거의 없을 때만 실행 
         if (touchStartX - touchEndX > 50) {
             goRight();
         } else if (touchEndX - touchStartX > 50) {
@@ -54,26 +54,3 @@ document.addEventListener("touchend", (e) => {
         }
     }
 });
-
-// 
-
-// leftArrow.addEventListener("click", goLeft);
-// rightArrow.addEventListener("click", goRight);
-
-
-// document.addEventListener("touchstart", function(e){
-//     touchStartX = e.touches[0].clientX;
-// });
-// document.addEventListener("touchend", function(e){
-//     touchEndX = e.changedTouches[0].clientX;
-//     handleSwipe();
-// });
-
-// function handleSwipe() {
-//     if (touchStartX - touchEndX > 100) {
-//         goRight();
-//     } else if (touchEndX - touchStartX > 100) {
-//         goLeft();
-//     }
-// }
-
