@@ -11,15 +11,13 @@ body {
 }
 #container {
     position: relative;
-    width: 100vw;
 }
-
 #title {
-    position: relative;
-    width: 100vw;
     height: 4.32vw;
     text-align: center;
 }
+
+/* 날짜 및 제목 */
 #descBox {
     display: grid;
     grid-template-columns: 4vw 9vw 2vw 85vw;
@@ -29,20 +27,26 @@ body {
     grid-column : 1 / 5;
 }
 
+/* 이미지 박스 */
 #imageBox {
     position: relative;
     top: 2vw;
+    left: 15vw;
+    width: 100vw;
     height: 36vw;
+    overflow: hidden;
     font-size: 0;
 }
-#imageSlide {
+/* #imageSlide {
     position: relative;
     left: 15vw;
-    transition: left 1s;
-}
-#imageSlide img {
+    display: grid;
+    grid-template-columns: repeat(674, 36vw);
+} */
+#imageBox img{
     display: inline-block;
     object-fit: contain;
+    box-sizing: border-box;
     width: 36vw;
     height: 36vw;
 }
@@ -53,12 +57,13 @@ body {
     top: 9.82vw;
     width: 100vw;
     height: 40vw;
+
     display: grid;
     grid-template-columns: 15vw 36vw 49vw;
     z-index: 20;
 }
 #solidBox div:first-child, #solidBox div:last-child {
-    background-color: rgba(245,245,245,0.8);
+    background-color: #f5f5f5;
 }
 
 /* 이전, 다음 버튼 */
@@ -72,10 +77,14 @@ body {
 #button .prev {
     position: absolute;
     left: 15vw;
+    display: inline-block;
+    height: 2vw;
 }
 #button .next {
     position: absolute;
     right: 49vw;
+    display: inline-block;
+    height: 2vw;
 }
 
 /* 선 넣기 */
@@ -105,7 +114,6 @@ body {
     letter-spacing: 0.225rem;
     text-decoration: none;
 }
-
 .year {
     font: normal normal bold 1rem/2vw Inter;
     color: #555;
@@ -123,11 +131,11 @@ body {
     text-align: center;
 }
 .imageTitle {
-    font: normal normal 400 1rem/2vw "Gothic A1";
-    padding-left: 0.5vw;
+    font: normal normal 200 1rem/2vw "Gothic A1";
+    padding-left: 0.7vw;
 }
 .prev, .next {
-    font: normal normal 500 1.1rem/2vw Karla;
+    font: normal normal 300 1.1rem/2vw Karla;
     color: #333;
 }
 

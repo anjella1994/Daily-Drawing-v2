@@ -11,29 +11,33 @@
         <div id="title">
             <a href="index-pc.html">drawing diary</a>
         </div>
+        <!-- 날짜 + 제목 -->
         <div id="descBox">
             <div id="emptyBar"></div>
-            <div class="year">2020</div>
-            <div class="month">june</div>
-            <div class="date">19</div>
-            <div class="imageTitle">제목</div>
+            <div class="year"></div>
+            <div class="month"></div>
+            <div class="date"></div>
+            <div class="imageTitle"></div>
         </div>
+        <!-- 이미지 박스 -->
         <div id="imageBox">
-            <div id="imageSlide">
-                <img src="images/DD-200619.jpg">
-                <img src="images/DD-200627.jpg">
-            </div>
         </div>
+        <!-- 가림 박스 -->
         <div id="solidBox">
             <div></div>
             <div></div>
             <div></div>
         </div>
+        <!-- 왼쪽 오른쪽 버튼 -->
         <div id="button">
             <span class="prev">〈 &nbsp;previous day</span>
             <span class="next">next day&nbsp; 〉</span>
         </div>
     </div>
+    <script src="js/p-slide-getDate.js"></script>
+    <script src="js/p-slide-getTitle.js"></script>
+    <script src="js/p-slide-getImage.js"></script>
+    <script src="js/p-slide-moveSlide.js"></script>
     <script src="js/viewportRefresh.js"></script>
 </body>
 </html>

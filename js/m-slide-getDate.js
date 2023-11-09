@@ -31,39 +31,3 @@ function updateCurrentDate(date) {
 //날짜 업데이트 함수 실행
 getDate(rowNum);
 updateCurrentDate(currentFullDate);
-
-// function getDate(i) {
-//     const startDate = new Date('2020-06-19');
-//     const endDate = new Date('2022-04-23');
-//     const dateArray = [];
-//     for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
-//         dateArray.push(new Date(date));
-//     }
-//     currentFullDate = dateArray[i];
-// }
-
-// function getMonthName(date) {
-//     const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-//     return monthNames[date.getMonth()];
-// }
-
-// let yearBox = document.querySelector(".year");
-// let monthBox = document.querySelector(".month");
-// let dateBox = document.querySelector(".date");
-
-// function updateCurrentDate(date) {
-//     currentYear = date.getFullYear();
-//     currentMonth = getMonthName(date);
-//     currentDate = date.getDate();
-//     yearBox.textContent = currentYear;
-//     monthBox.textContent = currentMonth;
-//     dateBox.textContent = currentDate;
-// }
-
-// //함수 실행 
-// getDate(rowNum);
-// updateCurrentDate(currentFullDate);
-
-
-
-

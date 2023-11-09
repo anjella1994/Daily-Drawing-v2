@@ -18,7 +18,6 @@ function goLeft() {
     updateCurrentDate(currentFullDate);
     inputTitle(rowNum);
     inputImage(currentFullDate);
-    window.location.reload();
 };
 function goRight() {
     if(rowNum == 673) {
@@ -31,7 +30,6 @@ function goRight() {
     updateCurrentDate(currentFullDate);
     inputTitle(rowNum);
     inputImage(currentFullDate);
-    window.location.reload();
 };
 
 //클릭 시 왼쪽, 오른쪽 이동
