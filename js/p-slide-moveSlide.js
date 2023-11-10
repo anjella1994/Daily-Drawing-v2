@@ -1,10 +1,10 @@
-const leftArrow = document.querySelector(".prev");
-const rightArrow = document.querySelector(".next");
+const leftArrow = document.querySelector("#prevBttn");
+const rightArrow = document.querySelector("#nextBttn");
 
 //슬라이드 이동 함수 선언
 function goLeft() {
-    clickedDivNum--;
     if(clickedDivNum !== 0){
+        clickedDivNum--;
         localStorage.setItem("clickedDivNum", clickedDivNum);
         getDate(clickedDivNum);
         updateCurrentDate(currentFullDate);
@@ -20,8 +20,8 @@ function goLeft() {
     }
 };
 function goRight() {
-    clickedDivNum++;
-    if(clickedDivNum !== 673) {
+    if(clickedDivNum !== 674) {
+        clickedDivNum++;
         localStorage.setItem("clickedDivNum", clickedDivNum);
         getDate(clickedDivNum);
         updateCurrentDate(currentFullDate);
@@ -39,3 +39,14 @@ function goRight() {
 
 leftArrow.addEventListener("click", goLeft);
 rightArrow.addEventListener("click", goRight);
+
+//뒤로 가기 
+const backBttn = document.querySelector("#backBttn");
+backBttn.addEventListener("click", () => {
+    window.history.back();
+});
+
+const pageTitle = document.querySelector("#title");
+pageTitle.addEventListener("click", () => {
+    window.location.href = "index-pc.html";
+})

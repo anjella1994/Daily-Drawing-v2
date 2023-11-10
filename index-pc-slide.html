@@ -9,31 +9,41 @@
 <body>
     <div id="container">
         <div id="title">
-            <a href="index-pc.html">drawing diary</a>
+            drawing diary
         </div>
-        <!-- 날짜 + 제목 -->
-        <div id="descBox">
-            <div id="emptyBar"></div>
-            <div class="year"></div>
-            <div class="month"></div>
-            <div class="date"></div>
-            <div class="imageTitle"></div>
+        <div id="drawing">
+            <div class="emptyBar line"></div>
+
+            <div class="year line"></div>
+            <div class="month line"></div>
+            <div class="date line"></div>
+            <div class="imageTitle line"></div>
+
+            <div class="emptyBar"></div>
+
+            <div class="emptySide left"></div>
+            <div id="imageBox"></div>
+            <div class="emptySide right"></div>
+
+            <div class="emptyBar"></div>
+
+            <div class="back button line">
+                <span id="backBttn">〈 &nbsp;back</span>
+            </div>
+            <div class="move button line">
+                <span id="prevBttn">〈 &nbsp;previous day</span>
+                <span id="nextBttn">next day&nbsp; 〉</span>
+            </div>
+            <div class="line"></div>
         </div>
-        <!-- 이미지 박스 -->
-        <div id="imageBox">
+        <div id="nav">
+
         </div>
-        <!-- 가림 박스 -->
-        <div id="solidBox">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <!-- 왼쪽 오른쪽 버튼 -->
-        <div id="button">
-            <span class="prev">〈 &nbsp;previous day</span>
-            <span class="next">next day&nbsp; 〉</span>
+        <div id="copyright">
+            © 2023 &nbsp;<span>Daeun Kim</span> &nbsp;All pictures cannot be copied without permission
         </div>
     </div>
+    <script src="js/contentHeight.js"></script>
     <script src="js/p-slide-getDate.js"></script>
     <script src="js/p-slide-getTitle.js"></script>
     <script src="js/p-slide-getImage.js"></script>
