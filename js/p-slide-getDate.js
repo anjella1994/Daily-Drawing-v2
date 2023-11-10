@@ -14,36 +14,46 @@ function getDate(i) {
     currentFullDate = dateArray[i];
 }
 
-//캘린더 채우기 함수 선언 
-function updateCurrentDate(date) {
+const [yearBox, monthBox] = document.querySelectorAll(".year, .month");
+const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
+let y;
+let m;
+let d;
 
+let firstDayofMonth;
+let firstDayName;
+let firstDayofNextMonth;
+let daysInMonth;
+
+const dateBoxes = document.querySelectorAll(".date");
+let startBoxNum;
+
+function getDateInfo(date) {
+    
     //현재 날짜의 연, 월, 일 추출 
-    let y = date.getFullYear();
-    let m = date.getMonth();
-    let d = date.getDate();
-
-    //연, 월부터 입력 
-    const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-    let monthName = monthNames[m];
-
-    const [yearBox, monthBox] = document.querySelectorAll(".year, .month");
-    yearBox.textContent = y;
-    monthBox.textContent = monthName;
-
+    y = date.getFullYear();
+    m = date.getMonth();
+    d = date.getDate();
 
     //현재 달의 첫 번째 날의 요일과 일의 개수 구하기
-    let firstDayofMonth = new Date(y, m, 1);
-    let firstDayName = firstDayofMonth.getDay(); //0이면 일요일, 1이면 월요일, ... , 6이면 토요일
-
-    let firstDayofNextMonth = new Date(y, m + 1, 1);
-    let daysInMonth = Math.floor((firstDayofNextMonth - firstDayofMonth) / (1000 * 60 * 60 * 24));
-
+    firstDayofMonth = new Date(y, m, 1);
+    firstDayName = firstDayofMonth.getDay(); //0이면 일요일, 1이면 월요일, ... , 6이면 토요일
+    firstDayofNextMonth = new Date(y, m + 1, 1);
+    daysInMonth = Math.floor((firstDayofNextMonth - firstDayofMonth) / (1000 * 60 * 60 * 24));
 
     //1일부터 마지막날까지 날짜를 입력할 dateBox불러오고, 시작 div정하기
-    const dateBoxes = document.querySelectorAll(".date");
-    let startBoxNum = (firstDayName === 0) ? 6 : (firstDayName - 1); //일요일이면 6, 월요일이면 0, ... , 토요일이면 5번 dateBox부터
+    startBoxNum = (firstDayName === 0) ? 6 : (firstDayName - 1); //일요일이면 6, 월요일이면 0, ... , 토요일이면 5번 dateBox부터
+}
 
+//캘린더 채우기 함수 선언 
+function updateCurrentDate(date) {
+    getDateInfo(date);
+
+    //연, 월부터 입력 
+    let monthName = monthNames[m];
+    yearBox.textContent = y;
+    monthBox.textContent = monthName;
 
     //시작 div부터 1부터 마지막 날까지 차례대로 숫자 넣기
     //월이 바뀌었을 경우 대비해 초기화 먼저 하고 

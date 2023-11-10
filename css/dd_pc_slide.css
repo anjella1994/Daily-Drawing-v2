@@ -55,6 +55,27 @@ body {
     text-align: center;
 }
 
+/* 네비게이션 */
+#nav {
+    position: absolute;
+    top: 7.82vw;
+    width: 13vw;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+#nav > div {
+    position: absolute;
+    top: 0;
+}
+#yearNav {
+    width: 4vw;
+}
+#monthNav {
+    left: 4vw;
+    width: 9vw;
+}
+
 /* 선 넣기, 색 채우기 */
 body {
     background-color: #ddd;
@@ -65,7 +86,7 @@ body {
 #calendar div, #drawing div {
     border-bottom: 2px solid #777;
 }
-.year, .month {
+#calendar .year, #calendar .month {
     border-right: 1px solid #555;
 }
 .blank {
