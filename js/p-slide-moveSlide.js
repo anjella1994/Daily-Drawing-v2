@@ -1,5 +1,5 @@
-const leftArrow = document.querySelector("#prevBttn");
-const rightArrow = document.querySelector("#nextBttn");
+const leftArrow = document.querySelector(".prev");
+const rightArrow = document.querySelector(".next");
 
 //슬라이드 이동 함수 선언
 function goLeft() {
@@ -41,7 +41,7 @@ leftArrow.addEventListener("click", goLeft);
 rightArrow.addEventListener("click", goRight);
 
 //뒤로 가기 
-const backBttn = document.querySelector("#backBttn");
+const backBttn = document.querySelector(".back");
 backBttn.addEventListener("click", () => {
     window.history.back();
 });

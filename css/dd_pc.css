@@ -36,7 +36,6 @@ body {
     width: 74vw;
 
     filter:grayscale(100%);
-    opacity:0.8;
 
     z-index: 0;
 }
@@ -109,7 +108,7 @@ body {
 }
 .image div {
     font: normal normal 200 0.9rem/2vw Inter;
-    text-align:center;
+    text-align: center;
 }
 .imageTitle {
     font: normal normal 400 0.8rem/2vw "Gothic A1";
