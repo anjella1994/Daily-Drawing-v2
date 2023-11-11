@@ -46,3 +46,7 @@ const pageTitle = document.querySelector("#title");
 pageTitle.addEventListener("click", () => {
     window.location.href = "index-pc.html";
 })
+window.addEventListener("popstate", function(e) {
+    history.go(-1);
+    this.location.reload(true);
+});
