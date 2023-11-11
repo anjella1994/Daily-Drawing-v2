@@ -6,9 +6,11 @@ let navOn = false;
 function toggleNav() {
     if (navOn) {
         nav.style.height = "0";
+        nav.style.borderBottom = "0";
         navOn = false;
     } else {
         nav.style.height = "120vw";
+        nav.style.borderBottom = "1px solid #777;"
         navOn = true;
     }
 }
