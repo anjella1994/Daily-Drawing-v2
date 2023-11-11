@@ -8,7 +8,7 @@
         window.onload = function() {
             //현재 브라우저의 너비 확인
             let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            if (width < 768) {
+            if (width < 1024) {
                 loadHTML('index-mobile.html');
             } else {
                 loadHTML('index-pc.html');

@@ -154,13 +154,10 @@ footer div span {
     font-weight: 700;
 }
 
-@media screen and (min-width: 1680px) {
-    html {
-        font-size: 16px;
-    }
-}
-@media screen and (min-width:1080px) and (max-width: 1680px) {
-    html {
-        font-size: 13px;
-    }
-}
+/* 미디어쿼리 */
+@media screen and (min-width: 1920px) {html {font-size: 16px;}}
+@media screen and (min-width: 1680px) and (max-width: 1919px) {html {font-size: 15px;}}
+@media screen and (min-width: 1440px) and (max-width: 1679px) {html {font-size: 14px;}}
+@media screen and (min-width: 1360px) and (max-width: 1439px) {html {font-size: 13px;}}
+@media screen and (min-width: 1280px) and (max-width: 1359px) {html {font-size: 12px;}}
+@media screen and (min-width: 1024px) and (max-width: 1280px) {html {font-size: 11px;}}
