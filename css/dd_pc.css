@@ -39,10 +39,10 @@ footer {
 .image div {
     opacity: 0;
     height: 2vw;
+    background: #D15837;
 }
 .image div:hover {
     opacity: 1; 
-    background: #D15837;
 }
 /* 캘린더 마우스 오버 시 나타나는 제목 */
 .imageTitle {
@@ -75,7 +75,7 @@ html div {
 
 /* z-index 모음 */
 .image div, .imageTitle { /*날짜 박스, 제목 박스*/
-    z-index: 10;
+    z-index: 10 !important;
 }
 #calendar div { /*캘린더 선*/
     z-index: 5;
@@ -108,7 +108,7 @@ html div {
     padding-left:0.7vw;
 }
 .image div { /*날짜 박스*/
-    font: normal italic 500 0.9rem/2vw Inter;
+    font: normal italic 500 0.9rem/2vw Inter !important;
     color: #f0f0f0;
     text-align: center;
 }
