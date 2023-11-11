@@ -13,6 +13,7 @@ function changeStyle (element, backgroundColor, color, font, textTransform) {
 
 divs.forEach((div, i) => {
     div.addEventListener("mouseenter", () => {
+        //비어 있지 않은 박스에 대해서만 실행 
         if(div.classList.contains("image") && !div.classList.contains("empty")){
             //행 번호 (0부터 시작)
             const rowNumber = Math.floor(i / 40); 

@@ -7,94 +7,101 @@
 /* 전체 레이아웃 */
 body {
     margin: 0;
-    background: #f5f5f5;
-}
-#container {
     position: relative;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
 }
+header {
+    height: 7.5vw;
+}
+nav {
+    position: absolute; 
+    top: 7.5vw; /* 헤더 높이 */
+}
+main {
+    height: 40vw;
+}
+footer {
+    height: calc(100vh - 47.5vw);
+    background-color: #ddd;
+}
+
+/* 헤더 레이아웃 */
 #title {
-    height: 4.32vw;
-    text-align: center;
+    height: 4vw;
 }
 #calendar {
+    position: relative;
     display: grid;
     grid-template-columns: 4vw 9vw repeat(37, 2vw) 13vw;
     grid-template-rows: 1.5vw 2vw;
 }
+#below {
+    position: absolute; top: 1.5vw; left: 11vw;
+    width: 2vw; height: 2vw;
+    text-align: center; line-height: 2.6vw; /* 수평 수직 정렬 */
+}
+
+/* 네비게이터 레이아웃 */
+nav {
+    display: grid;
+    grid-template-columns: 4vw 9vw;
+    grid-template-rows: repeat(12, 2vw);
+    grid-auto-flow: column;
+    height: 0; overflow: hidden; /* 평상시 안 보이게 초기 설정 */
+    transition: all 0.5s; /* 나타나거나 사라질 때 0.5s */
+}
+nav .empty {
+    grid-row: 4 / 13;
+}
+
+/* 메인 레이아웃 */
 #drawing {
     display: grid;
-    grid-template-columns: 13vw 21vw 32vw 21vw 13vw;
-    grid-template-rows: 36vw 2vw;
+    grid-template-columns: 13vw 20vw 34vw 20vw 13vw;
+    grid-template-rows: 38vw 2vw;
 }
-#imageBox {
-    grid-column: 2 / 5;
-}
-
 /* 이미지 */
 #imageBox {
+    grid-column: 2 / 5;
     text-align: center;
-    overflow: hidden;
+    padding: 2vw;
+    overflow: hidden; /*불필요한 여백 생기는 것 방지*/
 }
 #imageBox img{
-    position: relative;
-    top: 2vw;
+    width: 34vw;
+    height: 34vw;
     object-fit: contain;
-    width: 32vw;
-    height: 32vw;
 }
-
 /* 제목 및 이동 버튼 */
-.back, .next {
+#imageTitle {
+    text-align: center;
+}
+#back, #next {
     padding-left: 1vw;
 }
-.prev {
+#prev {
     text-align: right;
     padding-right: 1vw;
 }
-.imageTitle {
-    text-align: center;
-}
 
-/* 네비게이션 */
-#nav {
-    position: absolute;
-    top: 7.82vw;
-    width: 13vw;
-    height: 0;
-    overflow: hidden;
-    transition: all 0.5s;
-}
-#nav > div {
-    position: absolute;
-    top: 0;
-}
-#yearNav {
-    width: 4vw;
-}
-#monthNav {
-    left: 4vw;
-    width: 9vw;
-}
-
-/* 선 넣기, 색 채우기 */
-body {
-    background-color: #ddd;
-}
-#title, #calendar, #drawing {
-    background-color: #f5f5f5;
+/* 선 넣기, 면 채우기 */
+html div {
+    box-sizing: border-box;
 }
 #calendar div, #drawing div {
     border-bottom: 2px solid #777;
 }
 #calendar .year, #calendar .month {
-    border-right: 1px solid #555;
+    border-right: 1px solid #777;
 }
-.blank {
-    border-left: 1px solid #555;
+#calendar .empty {
+    border-left: 1px solid #777;
 }
-.imageTitle {
-    border-right: 1px solid #555;
-    border-left: 1px solid #555;
+#imageTitle {
+    border-right: 1px solid #777;
+    border-left: 1px solid #777;
     background-color: #eee;
 }
 
@@ -103,7 +110,7 @@ body {
     font: normal normal 500 2.25rem/4.32vw Karla;
     color: #555;
     letter-spacing: 0.225rem;
-    text-decoration: none;
+    text-align: center;
 }
 .day {
     font: normal normal 300 1rem/1.5vw Karla;
@@ -111,44 +118,40 @@ body {
     text-align: center;
 }
 .year {
-    font: normal normal bold 1rem/2vw Inter;
+    font: normal normal 700 0.9rem/2vw Inter;
     color: #555;
     text-align: center;
 }
 .month {
     font: normal normal 300 1rem/2vw Karla;
     color: #333;
-    text-align: right;
-    padding-right:0.5vw;
+    text-align: left;
+    padding-left: 0.7vw;
 }
 .date {
-    font: normal normal 200 0.9rem/2vw Inter;
+    font: normal normal 300 0.9rem/2vw Inter;
     color: #333;
     text-align: center;
 }
-.imageTitle {
-    font: normal normal 200 1rem/2vw "Gothic A1";
-}
-
-#imageBox {
+#imageBox { /*이미지 없을 때 '(none)'텍스트*/
     font: normal normal 300 1rem/32vw Karla;
     color: #777;
 }
-
-.back, .prev, .next {
-    font: normal normal 300 1.1rem/2vw Karla;
+#imageTitle {
+    font: normal normal 300 1rem/2vw "Gothic A1";
     color: #333;
 }
-
-#copyright {
-    font: normal normal 300 1rem/2.5vw Karla;
-    color: #777;
-    text-align: right;
-    padding-right: 1vw;
+#back, #prev, #next {
+    font: normal normal 300 1rem/2vw Karla;
+    color: #333;
 }
-#copyright span {
-    font-weight: 700;
+footer div {
+    font: normal normal 300 1rem/3vw Karla;
     color: #777;
+    text-align: center;
+}
+footer div span {
+    font-weight: 700;
 }
 
 @media screen and (min-width: 1680px) {

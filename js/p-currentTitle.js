@@ -1,6 +1,6 @@
-const container = document.getElementById("container");
+const main = document.querySelector("main");
 
-const images = document.querySelectorAll("div.image:not(.empty)");
+const dateBoxes = document.querySelectorAll("div.image:not(.empty)");
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -678,32 +678,31 @@ const titles = [
     "나가지 못하는 아이들", 
 ];
 
-//마우스 오버 한 이미지 
-let currentImage; 
+//마우스 오버 한 날짜 박스 
+let currentBox; 
 //마우스 오버 시 나타나는 제목 
 let currentTitle; 
 
-images.forEach((image, i) => {
-    if(!image.classList.contains("rest")){
-        image.addEventListener("mouseenter", () => {
+dateBoxes.forEach((dateBox, i) => {
+    //그림 그리지 않은 날 제외하고 실행
+    if(!dateBox.classList.contains("rest")){
+        dateBox.addEventListener("mouseenter", () => {
             //마우스 오버한 이미지 가져오기
-            currentImage = image;
+            currentBox = dateBox;
             //제목 엘리먼트 생성 및 스타일 설정 
             currentTitle = document.createElement("div");
             currentTitle.classList.add("imageTitle");
             //제목 엘리먼트에 내용 입력 
             currentTitle.textContent = `${titles[i]}`;
             //제목 엘리먼트 위치 및 높이 설정 
-            const currentRect = currentImage.getBoundingClientRect();
-            currentTitle.style.left = `${currentRect.left + currentRect.width}px`;
-            currentTitle.style.top = `${currentRect.top}px`;
-            currentTitle.style.height = `${currentRect.height}px`;
-            currentTitle.style.lineHeight = `${currentRect.height}px`;
+            currentTitle.style.top = `${currentBox.offsetTop}px`
+            currentTitle.style.left = `${currentBox.offsetLeft + currentBox.offsetWidth}px`
+            currentTitle.style.height = `${currentBox.offsetHeight}px`
             //제목 엘리먼트 추가
-            container.appendChild(currentTitle);
+            main.appendChild(currentTitle);
         });
-        image.addEventListener("mouseleave", () => {
-            container.removeChild(currentTitle);
+        dateBox.addEventListener("mouseleave", () => {
+            main.removeChild(currentTitle);
         }); 
     } 
 });

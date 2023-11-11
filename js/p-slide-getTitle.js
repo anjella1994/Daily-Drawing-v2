@@ -1,4 +1,4 @@
-const imageTitle = document.querySelector(".imageTitle");
+const imageTitle = document.querySelector("#imageTitle");
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 

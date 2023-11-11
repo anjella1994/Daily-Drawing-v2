@@ -7,10 +7,8 @@
     <title>Drawing Diary</title>
 </head>
 <body>
-    <div id="container">
-        <div id="title">
-            drawing diary
-        </div>
+    <header>
+        <div id="title">drawing diary</div>
         <div id="calendar">
             <div class="day"></div>
             <div class="day"></div>
@@ -92,44 +90,48 @@
             <div class="date"></div>
             <div class="date"></div>
             <div class="date"></div>
-            <div class="blank"></div>
-        </div>
-        <div id="drawing">
-            <div class="emptySide"></div>
-            <div id="imageBox"></div>
-            <div class="emptySide"></div>
+            <div class="empty"></div>
 
-            <div class="back">〈 &nbsp;back</div>
-            <div class="prev">〈 &nbsp;previous day</div>
-            <div class="imageTitle"></div>
-            <div class="next">next day&nbsp; 〉</div>
+            <div id="below">﹀</div>
+        </div>
+    </header>
+    <nav>
+        <div class="year">2020</div>
+        <div class="year">2021</div>
+        <div class="year">2022</div>
+        <div class="empty"></div>   
+        <div class="month">january</div>
+        <div class="month">february</div>
+        <div class="month">march</div>
+        <div class="month">april</div>
+        <div class="month">may</div>
+        <div class="month">june</div>
+        <div class="month">july</div>
+        <div class="month">august</div>
+        <div class="month">september</div>
+        <div class="month">october</div>
+        <div class="month">november</div>
+        <div class="month">december</div>
+        </div>
+    </nav>   
+    <main>  
+        <div id="drawing">
+            <div></div>
+            <div id="imageBox"></div>
+            <div></div>
+
+            <div id="back">〈 &nbsp;back</div>
+            <div id="prev">〈 &nbsp;previous day</div>
+            <div id="imageTitle"></div>
+            <div id="next">next day&nbsp; 〉</div>
             <div></div>
         </div>
-        <div id="nav">
-            <div id="yearNav">
-                <div class="year">2020</div>
-                <div class="year">2021</div>
-                <div class="year">2022</div>
-            </div>
-            <div id="monthNav">
-                <div class="month">january</div>
-                <div class="month">february</div>
-                <div class="month">march</div>
-                <div class="month">april</div>
-                <div class="month">may</div>
-                <div class="month">june</div>
-                <div class="month">july</div>
-                <div class="month">august</div>
-                <div class="month">september</div>
-                <div class="month">october</div>
-                <div class="month">november</div>
-                <div class="month">december</div>
-            </div>
-        </div>
-        <div id="copyright">
+    </main>  
+    <footer>
+        <div>
             © 2023 &nbsp;<span>Daeun Kim</span> &nbsp;All pictures cannot be copied without permission
         </div>
-    </div>
+    </footer>
     <script src="js/p-slide-getDate.js"></script>
     <script src="js/p-slide-getTitle.js"></script>
     <script src="js/p-slide-getImage.js"></script>

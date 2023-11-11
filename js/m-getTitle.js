@@ -1,4 +1,4 @@
-const titleboxs = document.querySelectorAll("#calendar div:nth-child(4n)");
+const titleboxes = document.querySelectorAll("#calendar div:nth-child(4n)");
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -675,7 +675,6 @@ const titles = [
     "small dream", 
     "나가지 못하는 아이들", 
 ];
-
 for (i = 0; i < titles.length; i++) {
-    titleboxs[i].textContent = titles[i];
+    titleboxes[i].textContent = titles[i];
 }

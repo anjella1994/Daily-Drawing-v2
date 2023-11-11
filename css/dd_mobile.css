@@ -2,98 +2,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-
+/* 전체 레이아웃 */
 body {
+    position: relative; /* 하위 요소에 sticky 지정하려면 필요 */
+    height: 10155vw; /* 헤더 30vw + 메인 15*674vw + 푸터 15vw */
     margin: 0;
     background-color: #f5f5f5;
-    position: relative;
-    height: 10150vw;
+}
+header {
+    position: sticky; top: 0;
+    background-color: #f5f5f5;
+}
+nav {
+    position: sticky; top: 30vw;
+    background-color: #eee;
+}
+main {
+    position: absolute; top: 30vw; /*nav가 생기는 것에 영향 받지 않음 */
+}
+footer {
+    position: absolute; top: 10140vw; /*nav가 생기는 것에 영향 받지 않음 */
+    width: 100vw;   
 }
 
-header {
-    position: sticky;
-    top: 0;
-    background-color: #f5f5f5;
-    z-index: 10;
-}
+/* 헤더 레이아웃 */
 #title {
     height: 20vw;
 }
-
-#yearMonth {
+#dateBar {
     height: 10vw;
     position: relative;
+    display: grid; grid-template-columns: 50vw 50vw;
 }
-#yearMonth .year {
-    position: absolute;
-    right: 52.5vw;
-}
-#yearMonth .month {
-    position: absolute;
-    left: 52.5vw;
-}
-#yearMonth .below {
-    display:inline-block;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    line-height: 13.5vw;
-    width: 10vw;
-    height: 10vw;
+#dateBar #below { /* 아래로 nav 보이게 하는 버튼 */
+    position: absolute; top: 0; right: 0;
+    width: 10vw; height: 10vw; /* 클릭 범위 넓히기 위해 블럭으로 바꿈 */
+    text-align: center; line-height: 12.5vw; /* 가로 세로 위치 정렬 */
 }
 
+/* 네비게이터 레이아웃 */
 nav {
-    background-color: #eee;
-    z-index: 10;
-
-    position: sticky;
-    top: 30vw;
-
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(12, 10vw);
 
-    height: 0;
-    overflow: hidden;
-    transition: height 0.5s;
+    overflow: hidden; height: 0; /* 디폴트 안 보이게 설정 */
+    transition: all 0.5s; /* 나타나거나 사라질 때 0.5s */
 }
 nav .empty {
     grid-row: 4 / 13;
 }
 
+/* 메인 레이아웃 */
 #calendar {
-    position: absolute;
-    top: 30vw;
-    height: 10110vw;
     display: grid; 
     grid-template-columns: 9vw 9vw 15vw 67vw;
     grid-template-rows: repeat(674,15vw);
 }
-
 #thumbnails {
-    position: absolute;
-    top: 30vw;
-    left: 18vw;
-    width: 15vw;
-    height: 10110vw;
-    overflow: hidden;
-    z-index: 0;
+    position: absolute; top: 0; left: 18vw;
+    width: 15vw; height: 10110vw;
+    overflow: hidden; /* 가장 아래 이미지 100장 안 되므로 잘리도록 설정*/
 }
 #thumbnails img {
-    display: block;
-    width: 15vw;
-    height: 1500vw;
+    display: block; /* 너비, 높이 값 주기 위해서 */
+    width: 15vw; height: 1500vw; /* 100장씩 한 이미지로 만들어둠 */
 }
 
-/* 선 그리기, 면 채우기 */
-#yearMonth {
-    box-sizing: border-box;
+/* 선 그리기, 면 채우기 모음 */
+html div {
+    box-sizing: border-box; /* border에 의해 div크기 값이 변하는 것 방지 */
+}
+#dateBar {
     border-top: 1px solid #777;
     border-bottom: 1px solid #777;
 }
 #calendar div {
-    box-sizing: border-box;
     border-bottom: 1px solid #ccc;
 }
 #calendar div:nth-child(4n+1) {
@@ -105,25 +90,26 @@ nav .empty {
 }
 #calendar div:nth-child(4n+3) {
     border-right: 1px solid #ccc;
-    z-index: 5;
-}
-#calendar div.last {
-    border-bottom: 2px solid #777 !important;
 }
 #calendar div.empty {
     background-color: #ddd;
 }
-
-/* 이미지 슬라이드 */
-#imageSlide img {
-    width: 100vw;
-}
-#imageDesc {
-    position: absolute;
-    bottom: 0;
+#calendar div.last {
+    border-bottom: 2px solid #777 !important;
 }
 
-/* 폰트 */
+/* z-index 모음 */
+header, nav {
+    z-index: 10;
+}
+#calendar div:nth-child(4n+3) {
+    z-index: 5;
+}
+#thumnails img {
+    z-index: 0;
+}
+
+/* 글꼴 모음 */
 #title {
     font: normal normal 500 2rem/20vw Karla;
     color: #555;
@@ -131,45 +117,39 @@ nav .empty {
     text-align: center;
 }
 .year {
-    font: normal normal bold 0.9rem/10vw Inter;
+    font: normal normal 700 0.9rem/10vw Inter;
     color: #555;
-    text-align: left;
+    text-align: right; padding-right: 2.5vw;
 }
 .month {
     font: normal normal 300 1rem/10vw Karla;
     color: #333;
-    text-align: right;
+    text-align: left; padding-left: 2.5vw;
 }
-
-nav .year {
-    font: normal normal bold 0.9rem/10vw Inter;
-    color: #555;
-    text-align: right;
-    padding-right: 2.5vw;
-}
-nav .month {
+#below {
     font: normal normal 300 1rem/10vw Karla;
     color: #333;
-    text-align: left;
-    padding-left: 2.5vw;
 }
-
-#calendar div:nth-child(4n+1) {
+#calendar div:nth-child(4n+1) { /*date*/
     font: normal normal 500 0.9rem/15vw Inter;
-    text-align: center;
     color: #555;
-}
-#calendar div:nth-child(4n+2) {
-    font: normal normal 200 0.9rem/15vw Inter;
     text-align: center;
 }
-#calendar div:nth-child(4n) {
-    font: normal normal 200 0.7rem/15vw "Gothic A1";
-    text-align: right;
-    padding-right: 3vw;
-}
-
-.below {
-    font: normal normal 300 1rem/10vw Karla;
+#calendar div:nth-child(4n+2) { /*요일*/
+    font: normal normal 300 0.9rem/15vw Inter;
     color: #333;
+    text-align: center;
+}
+#calendar div:nth-child(4n) { /*이미지 제목*/
+    font: normal normal 300 0.7rem/15vw "Gothic A1";
+    color: #333;
+    text-align: right; padding-right: 3vw;
+}
+footer div{
+    font: normal normal 300 0.8rem/15vw Karla;
+    color: #777;
+    text-align: center;
+}
+footer div span {
+    font-weight: 500;
 }

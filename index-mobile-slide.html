@@ -11,22 +11,23 @@
 </head>
 <body>
     <header>
-        <div id="title">
-            <a href="index-mobile.html">drawing diary</a>
-        </div>
-        <div id="yearMonth">
-            <span class="left">〈</span>
+        <div id="title">drawing diary</div>
+        <div id="dateBar">
+            <span id="prev">〈</span>
             <span class="year"></span>
             <span class="month"></span>
             <span class="date"></span>
-            <span class="right">〉</span>
+            <span id="next">〉</span>
         </div>
-        <div id="imageTitle">
-        </div> 
+        <div id="imageTitle"></div> 
     </header>
-    <div id="image"></div>
-    <div id="back">〈 &nbsp;back</div>
-    <div id="back-bg"></div>
+    <main>
+        <div id="imageBox"></div>
+        <div id="back">〈 &nbsp;back</div>
+    </main>
+    <footer>
+        <div>© 2023. &nbsp;<span>Daeun Kim</span>&nbsp; All rights reserved.</div>
+    </footer>
     <script src="js/m-slide-getDate.js"></script>
     <script src="js/m-slide-getTitle.js"></script>
     <script src="js/m-slide-getImage.js"></script>
