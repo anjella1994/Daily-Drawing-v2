@@ -37,12 +37,13 @@ footer {
 
 /* 캘린더 마우스 오버 시 날짜 표시 */
 .image div {
+    opacity: 0;
     height: 2vw;
     background: #D15837;
 }
-/* .image div:hover {
+.image div:hover {
     opacity: 1; 
-} */
+}
 /* 캘린더 마우스 오버 시 나타나는 제목 */
 .imageTitle {
     position: absolute;
