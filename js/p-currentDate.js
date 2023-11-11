@@ -47,7 +47,6 @@ function divLeave(i) {
 divs.forEach((div, i) => {
     div.addEventListener("mouseenter", () => divOver(div, i));
     div.addEventListener("mouseleave", () => divLeave(i));
-
     div.addEventListener("touchstart", (event) => {
         event.preventDefault();
         divOver(div, i);
@@ -56,6 +55,7 @@ divs.forEach((div, i) => {
         event.preventDefault();
         divLeave(i);
     });
+    div.addEventListener("click", () => divLeave(i));
 });
 
 
