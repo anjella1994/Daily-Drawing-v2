@@ -25,8 +25,8 @@ yearBoundary.push(monthBoundary[7]); //8번째 달부터 2021년
 yearBoundary.push(monthBoundary[19]); //20번째 달부터 2022년
 
 //연, 월 업데이트 함수 
-let yearBox = document.querySelector("#dateBar .year");
-let monthBox = document.querySelector("#dateBar .month")
+const yearBox = document.querySelector("#dateBar .year");
+const monthBox = document.querySelector("#dateBar .month")
 function updateDate(y, m) {
     yearBox.textContent = y;
     monthBox.textContent = m;
