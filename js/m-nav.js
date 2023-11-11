@@ -4,6 +4,7 @@
 const dateBar = document.querySelector("#dateBar");
 const nav = document.querySelector("nav");
 let navOn = false;
+
 //nav 토글 함수 선언
 function toggleNav() {
     if (navOn) {
@@ -11,7 +12,7 @@ function toggleNav() {
         nav.style.borderBottom = "0";
         navOn = false;
     } else {
-        nav.style.height = "120vw";
+        nav.style.height = (window.innerHeight / window.innerWidth < 1.5) ? "90vw" : "120vw";
         nav.style.borderBottom = "1px solid #777";
         navOn = true;
     }

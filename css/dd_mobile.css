@@ -16,6 +16,7 @@ header {
 nav {
     position: sticky;
     top: 30vw;
+    width: 100vw;
     background-color: #eee;
 }
 main {
@@ -100,8 +101,11 @@ html div {
 }
 
 /* z-index 모음 */
-header, nav {
+header{
     z-index: 10;
+}
+nav {
+    z-index: 8;
 }
 #calendar div:nth-child(4n+3) {
     z-index: 5;
@@ -165,5 +169,3 @@ footer div span {
 @media screen and (min-width: 640px) and (max-width: 767px) {html {font-size: 22px;}}
 @media screen and (min-width: 768px) and (max-width: 883px) {html {font-size: 24px;}}
 @media screen and (min-width: 884px) and (max-width: 1024px) {html {font-size: 26px;}}
-
-/*화면 비율이 100 : 150보다 넓적하면 -> nav의 sticky 속성 조절하는 걸로 해보기 
