@@ -20,13 +20,34 @@ yearBoundary.push(monthBoundary[0]); //1번째 달부터 2020년
 yearBoundary.push(monthBoundary[7]); //8번째 달부터 2021년
 yearBoundary.push(monthBoundary[19]); //20번째 달부터 2022년
 
-
-//연, 월을 업데이트하는 함수 선언 
+//연, 월을 업데이트하는 함수 선언 (+ 네비게이터 초기 설정) 
 let yearBox = document.querySelector("#yearMonth .year");
 let monthBox = document.querySelector("#yearMonth .month")
 function updateDate(y, m) {
     yearBox.textContent = y;
     monthBox.textContent = m;
+    setNav(y);
+}
+let yearNavs = document.querySelectorAll("nav .year");
+let monthNavs = document.querySelectorAll("nav .month");
+function setNav(year) {
+    for (let i = 0; i < yearNavs.length; i++) {
+        yearNavs[i].style.color = i === (year - 2020) ? "#555" : "#ddd";
+    }
+    switch (year) {
+        case 2020:
+            activeMonths = [5,6,7,8,9,10,11];
+            break;
+        case 2021:
+            activeMonths = [0,1,2,3,4,5,6,7,8,9,10,11];
+            break;
+        case 2022:
+            activeMonths = [0,1,2,3];
+            break;
+    }
+    for (let i = 0; i < monthNavs.length; i++) {
+        monthNavs[i].style.color = activeMonths.includes(i) ? "#333" : "#ddd";
+    }
 }
 
 //연, 월 초기값 입력 

@@ -19,6 +19,7 @@ header {
 #title {
     height: 20vw;
 }
+
 #yearMonth {
     height: 10vw;
     position: relative;
@@ -42,31 +43,23 @@ header {
 }
 
 nav {
-    position: sticky;
-    top: 30vw;
-    
     background-color: #eee;
     z-index: 10;
+
+    position: sticky;
+    top: 30vw;
+
     display: grid;
-    grid-template-columns: 50vw 16.6vw 16.6vw 16.7vw;
-    grid-template-rows: repeat(9, 10vw);
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(12, 10vw);
 
     height: 0;
     overflow: hidden;
-    transition: height ease 1s 0s;
+    transition: height 0.5s;
 }
-nav .ttw{
-    grid-row: 1/4;
-}
-nav .tto{
-    grid-row: 4/8;
-}
-nav .ttt {
-    grid-row: 8/10;
-}
-nav div {
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+nav .empty {
+    grid-row: 4 / 13;
 }
 
 #calendar {
@@ -97,6 +90,9 @@ nav div {
 #yearMonth {
     box-sizing: border-box;
     border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+}
+nav {
     border-bottom: 1px solid #777;
 }
 #calendar div {

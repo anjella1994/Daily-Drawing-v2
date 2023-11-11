@@ -66,7 +66,6 @@ function moveByNav (y, m, d) {
 }
 monthNavs.forEach((monthNav, i) => {
     monthNav.addEventListener("click", () => {
-        setNav(clickedYear);
         if(activeMonths.includes(i)) {
             if(clickedYear === 2020 && i === 5) {
                 moveByNav(clickedYear, i, 19);
