@@ -711,11 +711,11 @@ dateBoxes.forEach(((dateBox, i) => {
     dateBox.addEventListener("mouseleave", titleOff);
     dateBox.addEventListener("touchstart", (event) => {
         event.preventDefault();
-        titleOn(div, i);
+        titleOn(dateBox, i);
     });
     dateBox.addEventListener("touchend", (event) => {
         event.preventDefault();
-        titleOff(i);
+        titleOff();
     });
     dateBox.addEventListener("click", () => titleOff(i));
 }));

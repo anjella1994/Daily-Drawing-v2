@@ -1,6 +1,7 @@
+const dateNumBoxes = document.querySelectorAll(".image div");
 document.addEventListener("DOMContentLoaded", function() {
-    //currentTitles에서 가져온 dateBoxes 배열 그대로 이용
-    dateBoxes.forEach(function(dateBox, index) { 
+    //마우스 갖다대면 생기는 날짜 박스
+    dateNumBoxes.forEach(function(dateBox, index) { 
         dateBox.addEventListener("click", function(){
             //클릭한 div의 인덱스를 localstorage에 저장
             localStorage.setItem("clickedDivNum", index);
