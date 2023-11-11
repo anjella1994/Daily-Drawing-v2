@@ -92,9 +92,6 @@ nav .empty {
     border-top: 1px solid #777;
     border-bottom: 1px solid #777;
 }
-nav {
-    border-bottom: 1px solid #777;
-}
 #calendar div {
     box-sizing: border-box;
     border-bottom: 1px solid #ccc;

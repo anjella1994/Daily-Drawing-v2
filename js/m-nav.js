@@ -10,7 +10,7 @@ function toggleNav() {
         navOn = false;
     } else {
         nav.style.height = "120vw";
-        nav.style.borderBottom = "1px solid #777;"
+        nav.style.borderBottom = "1px solid #777";
         navOn = true;
     }
 }
