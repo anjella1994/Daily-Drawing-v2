@@ -25,6 +25,8 @@ function getCurrentDate (i) { //div의 index
 
 //마우스 댄 날짜에 해당하는 월, 요일 div에 강조 생기거나 없어지는 함수 
 function dateOn(div, i) {
+    let dateNumBox = div.querySelector("div");
+    dateNumBox.classList.add("active");
     if(div.classList.contains("image") && !div.classList.contains("empty")){
         getCurrentDate(i);
         //월 빨간색 표시
@@ -33,7 +35,9 @@ function dateOn(div, i) {
         changeStyle(currentDay, "#D15837", "white", "normal normal 500 1rem/1.5vw Karla", "uppercase");
     }
 }
-function dateOff(i) {
+function dateOff(div, i) {
+    let dateNumBox = div.querySelector("div");
+    dateNumBox.classList.remove("active");
     if(currentMonth && currentDay) {
         getCurrentDate(i);
         changeStyle(currentMonth, "transparent", "#333", "normal normal 300 1rem/2vw Karla", "lowercase");
@@ -45,16 +49,16 @@ function dateOff(i) {
 //마우스, 터치에 따라 월, 요일 강조가 생기거나 없어지는 함수 실행
 divs.forEach((div, i) => {
     div.addEventListener("mouseenter", () => dateOn(div, i));
-    div.addEventListener("mouseleave", () => dateOff(i));
+    div.addEventListener("mouseleave", () => dateOff(div, i));
     div.addEventListener("touchstart", (event) => {
         event.preventDefault();
         dateOn(div, i);
     });
     div.addEventListener("touchend", (event) => {
         event.preventDefault();
-        dateOff(i);
+        dateOff(div,i);
     });
-    div.addEventListener("click", () => dateOff(i));
+    div.addEventListener("click", () => dateOff(div, i));
 });
 
 

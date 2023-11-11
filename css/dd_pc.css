@@ -39,10 +39,10 @@ footer {
 .image div {
     opacity: 0;
     height: 2vw;
-    background: #D15837;
 }
-.image div:hover {
+.image div.active { /*자바스크립트 이용해 마우스 오버 또는 터치 시 .active 추가*/
     opacity: 1; 
+    background: #D15837;
 }
 /* 캘린더 마우스 오버 시 나타나는 제목 */
 .imageTitle {
