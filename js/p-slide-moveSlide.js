@@ -48,5 +48,5 @@ pageTitle.addEventListener("click", () => {
 })
 window.addEventListener("popstate", function(e) {
     history.go(-1);
-    this.location.reload(true);
+    window.location.replace(document.referrer);
 });
