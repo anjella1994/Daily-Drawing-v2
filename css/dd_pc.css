@@ -108,7 +108,7 @@ html div {
     padding-left:0.7vw;
 }
 .image div { /*날짜 박스*/
-    font: normal italic 500 0.9rem/2vw Inter !important;
+    font: normal normal 500 0.9rem/2vw Inter !important;
     color: #f0f0f0;
     text-align: center;
 }

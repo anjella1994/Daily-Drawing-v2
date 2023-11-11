@@ -109,7 +109,7 @@ function updateCurrentDate(date) {
     for (i = 0; i < dateBoxes.length; i++) {
     changeStyle(dateBoxes[i], "transparent", "#333", "normal normal 200 0.9rem/2vw Inter"); //모든 div 초기화 먼저 하고 
     }
-    changeStyle(dateBoxes[currentBoxNum], "#D15837", "white", "normal italic 500 0.9rem/2vw Inter"); //현재 날짜만 빨간색으로
+    changeStyle(dateBoxes[currentBoxNum], "#D15837", "white", "normal normal 500 0.9rem/2vw Inter"); //현재 날짜만 빨간색으로
 }
 
 //첫 번째 명령과 두 번째 명령 모두 실행

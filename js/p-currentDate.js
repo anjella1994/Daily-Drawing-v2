@@ -21,10 +21,10 @@ divs.forEach((div, i) => {
             const columnNumber = i % 40;
             //월 빨간색 표시
             currentMonth = divs[rowNumber * 40 + 1];
-            changeStyle(currentMonth, "#D15837", "white", "normal italic 500 1rem/2vw Karla", "uppercase");
+            changeStyle(currentMonth, "#D15837", "white", "normal normal 500 1rem/2vw Karla", "uppercase");
             //요일 빨간색 표시
             currentDay = divs[columnNumber];
-            changeStyle(currentDay, "#D15837", "white", "normal italic 500 1rem/1.5vw Karla", "uppercase");
+            changeStyle(currentDay, "#D15837", "white", "normal normal 500 1rem/1.5vw Karla", "uppercase");
         }
     });
     div.addEventListener("mouseleave", () => {
