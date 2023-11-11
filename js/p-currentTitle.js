@@ -683,27 +683,39 @@ let currentBox;
 //마우스 오버 시 나타나는 제목 
 let currentTitle; 
 
-dateBoxes.forEach((dateBox, i) => {
-    //그림 그리지 않은 날 제외하고 실행
+//제목 생기는 함수, 없어지는 함수 
+function titleOn(dateBox, i) {
     if(!dateBox.classList.contains("rest")){
-        dateBox.addEventListener("mouseenter", () => {
-            //마우스 오버한 이미지 가져오기
-            currentBox = dateBox;
-            //제목 엘리먼트 생성 및 스타일 설정 
-            currentTitle = document.createElement("div");
-            currentTitle.classList.add("imageTitle");
-            //제목 엘리먼트에 내용 입력 
-            currentTitle.textContent = `${titles[i]}`;
-            //제목 엘리먼트 위치 및 높이 설정 
-            currentTitle.style.top = `${currentBox.offsetTop}px`
-            currentTitle.style.left = `${currentBox.offsetLeft + currentBox.offsetWidth}px`
-            currentTitle.style.height = `${currentBox.offsetHeight}px`
-            //제목 엘리먼트 추가
-            main.appendChild(currentTitle);
-        });
-        dateBox.addEventListener("mouseleave", () => {
-            main.removeChild(currentTitle);
-        }); 
-    } 
-});
+        //마우스 오버한 이미지 가져오기
+        currentBox = dateBox;
+        //제목 엘리먼트 생성 및 스타일 설정 
+        currentTitle = document.createElement("div");
+        currentTitle.classList.add("imageTitle");
+        //제목 엘리먼트에 내용 입력 
+        currentTitle.textContent = `${titles[i]}`;
+        //제목 엘리먼트 위치 및 높이 설정 
+        currentTitle.style.top = `${currentBox.offsetTop}px`
+        currentTitle.style.left = `${currentBox.offsetLeft + currentBox.offsetWidth}px`
+        currentTitle.style.height = `${currentBox.offsetHeight}px`
+        //제목 엘리먼트 추가
+        main.appendChild(currentTitle);
+    }
+}
+function titleOff() {
+    main.removeChild(currentTitle);
+}
 
+//마우스, 터치에 따라 제목이 생기거나 없어지는 함수 실행
+dateBoxes.forEach(((dateBox, i) => {
+    dateBox.addEventListener("mouseenter", () => titleOn(dateBox, i));
+    dateBox.addEventListener("mouseleave", titleOff);
+    dateBox.addEventListener("touchstart", (event) => {
+        event.preventDefault();
+        titleOn(div, i);
+    });
+    dateBox.addEventListener("touchend", (event) => {
+        event.preventDefault();
+        titleOff(i);
+    });
+    dateBox.addEventListener("click", () => titleOff(i));
+}));
