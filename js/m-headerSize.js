@@ -6,6 +6,7 @@ const body = document.querySelector("body");
 const pageTitle = document.querySelector("#title");
 const main = document.querySelector("main");
 const belowBttn = document.querySelector("#below");
+const footer = document.querySelector("footer");
 
 function changeH(element, h) {
     element.style.height = h;
@@ -38,4 +39,6 @@ if (innerRatio < 1.5) {
     
     changeT(nav, "22.5vw");
     changeT(main, "22.5vw");
+    changeT(footer, "10132.5vw")
+    changeH(body, "10147.5vw");
 }
