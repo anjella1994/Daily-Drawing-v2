@@ -78,16 +78,30 @@ monthNavs.forEach((monthNav, i) => {
     monthNav.addEventListener("click", () => {
         if (activeMonths.includes(i)) {
             let scrollTo;
-            switch (clickedYear) {
-                case 2020 :  
-                    scrollTo = monthBoundary[i - 5];
-                    break;
-                case 2021 :
-                    scrollTo = monthBoundary[i + 7];
-                    break;
-                case 2022 :
-                    scrollTo = monthBoundary[i + 19];
-                    break;
+            if (!reverseOn) {
+                switch (clickedYear) {
+                    case 2020 :  
+                        scrollTo = monthBoundary[i - 5];
+                        break;
+                    case 2021 :
+                        scrollTo = monthBoundary[i + 7];
+                        break;
+                    case 2022 :
+                        scrollTo = monthBoundary[i + 19];
+                        break;
+                }
+            } else {
+                switch (clickedYear) {
+                    case 2020 :
+                        scrollTo = monthBoundaryRev[i - 5];
+                        break;
+                    case 2021 :
+                        scrollTo = monthBoundaryRev[i + 7];
+                        break;
+                    case 2022 :
+                        scrollTo = monthBoundaryRev[i + 19];
+                        break;
+                }
             }
             window.scrollTo({top: scrollTo, behavior: "smooth"});
             toggleNav();

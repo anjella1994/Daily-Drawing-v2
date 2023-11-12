@@ -2,7 +2,6 @@
 let innerRatio = window.innerHeight / window.innerWidth;
 
 //길이 바꿔야 하는 것들 중 아직 불러온 적 없는 객체들 불러오기
-const body = document.querySelector("body");
 const pageTitle = document.querySelector("#title");
 const main = document.querySelector("main");
 const belowBttn = document.querySelector("#below");

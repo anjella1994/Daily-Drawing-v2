@@ -1,5 +1,5 @@
+const calendarDivs = document.querySelectorAll("#calendar div");
 document.addEventListener("DOMContentLoaded", function() {
-    const calendarDivs = document.querySelectorAll("#calendar div");
     calendarDivs.forEach(function(div, i) {
         //그림이나 제목을 클릭했을 때에만 이동
         if (i % 4 == 2 || i % 4 == 3) {
@@ -12,4 +12,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-

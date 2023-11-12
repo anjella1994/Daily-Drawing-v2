@@ -38,19 +38,34 @@ let y = years[0];
 //연, 월 초기값 화면에 업데이트
 updateDate(y, m);
 
-//스크롤 시 연, 월 화면에 업데이트 
+//스크롤 시 연, 월 화면에 업데이트 (+reverse 판단 여부 추가)
 window.addEventListener("scroll", function() {
     let h = window.scrollY;
-    for (let i = years.length - 1; i >= 0; i--) {
-        if (h >= yearBoundary[i] - 1) {
-            y = years[i];
-            break;
+    if (!reverseOn) {
+        for (let i = years.length - 1; i >= 0; i--) {
+            if (h >= yearBoundary[i] - 1) {
+                y = years[i];
+                break;
+            }
         }
-    }
-    for (let i = months.length - 1; i >= 0; i--) {
-        if (h >= monthBoundary[i] - 1) {
-            m = months[i];
-            break;
+        for (let i = months.length - 1; i >= 0; i--) {
+            if (h >= monthBoundary[i] - 1) {
+                m = months[i];
+                break;
+            }
+        }
+    } else {
+        for (let i = 0; i < years.length; i++) {
+            if(h >= yearBoundaryRev[i] - 1) {
+                y = years[i];
+                break;
+            }
+        }
+        for (let i = 0; i < months.length; i++) {
+            if (h >= monthBoundaryRev[i] - 1) {
+                m = months[i];
+                break;
+            }
         }
     }
     updateDate(y, m);
