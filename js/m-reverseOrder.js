@@ -2,7 +2,7 @@
 const reverseBttn = document.querySelector("#reverse");
 
 let reverseOn = false;
-reverseBttn.textContent = "↓ oldest first";
+reverseBttn.textContent = "↑ latest first";
 
 const firstBoxes = document.querySelectorAll("#calendar div.first");
 const lastBoxes = document.querySelectorAll("#calendar div.last")
@@ -25,7 +25,7 @@ function reverseOrder() {
             setNav(2022); //메뉴 상태 초기값 변경 
             window.scrollTo(0,0);
             
-            reverseBttn.textContent = "↑  latest first";
+            reverseBttn.textContent = "↓ oldest first";
             reverseOn = true;
         });
     } else {
@@ -41,7 +41,7 @@ function reverseOrder() {
             setNav(2020);
             window.scrollTo(0,0);
 
-            reverseBttn.textContent = "↓ oldest first";
+            reverseBttn.textContent = "↑ latest first";
             reverseOn = false;
         });
     }

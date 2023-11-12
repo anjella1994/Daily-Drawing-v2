@@ -33,15 +33,11 @@ function searchOnEnter(event) {
     }
 }
 
-//언더바는 스크롤이 멈춰 있을 때만 보임
-const underBar = document.querySelector("#underBar")
-let isScrolling;
-
-window.addEventListener("scroll", () => {
-    window.clearTimeout(isScrolling);
-    underBar.style.display = "none";
-
-    isScrolling = setTimeout(function() {
-        underBar.style.display = "grid";
-    }, 300);
+//view all 누르면 검색했던 결과 사라지고 원래대로
+const viewAllBttn = document.querySelector("#viewAll");
+viewAllBttn.addEventListener("click", () => {
+    titleBoxes.forEach((titleBox, i) => {
+        showRow(i);
+    });
 });
+
