@@ -8,5 +8,6 @@ window.addEventListener("resize", function() {
     if(currentWidth !== previousWidth && !isSearching) {
         this.location.href="index.html";
     }
+    
     previousWidth = currentWidth;
 });
