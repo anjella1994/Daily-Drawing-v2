@@ -6,6 +6,7 @@ const pageTitle = document.querySelector("#title");
 const main = document.querySelector("main");
 const belowBttn = document.querySelector("#below");
 const footer = document.querySelector("footer");
+const body = document.querySelector("body")
 
 function changeH(element, h) {
     element.style.height = h;
