@@ -1,5 +1,3 @@
-// 첫 번째 명령 만들기 : 슬라이드 이동하기
-
 const prevBttn = document.querySelector("#prev");
 const nextBttn = document.querySelector("#next");
 
@@ -19,9 +17,6 @@ function updateSlide (clickedDivNum){
     }
 }
 
-//월이 바뀔 때는 새로고침
-
-
 //화살표 클릭 시 슬라이드 이동 함수 선언
 function goPrev() {
     clickedDivNum = (clickedDivNum !== 0) ? clickedDivNum - 1 : 673;
@@ -35,18 +30,3 @@ function goNext() {
 //슬라이드 이동하기
 prevBttn.addEventListener("click", goPrev);
 nextBttn.addEventListener("click", goNext);
-
-
-// 두 번째 명령 만들기 : 뒤로 가기 
-const backBttn = document.querySelector("#back");
-backBttn.addEventListener("click", () => {
-    window.history.back();
-});
-const pageTitle = document.querySelector("#title");
-pageTitle.addEventListener("click", () => {
-    window.location.href = "index-pc.html";
-})
-window.addEventListener("popstate", function(e) {
-    history.go(-1);
-    window.location.replace(document.referrer);
-});

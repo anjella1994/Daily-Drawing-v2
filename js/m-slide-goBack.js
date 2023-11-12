@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const pageTitle = document.querySelector("#title");
     //제목 누르면 뒤로 가기 (스크롤 위치 초기화)
     pageTitle.addEventListener("click", () => {
-        window.location.href = "index-mobile.html";
+        window.location.href = "index.html";
     });
 });
