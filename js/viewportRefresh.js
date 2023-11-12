@@ -2,7 +2,10 @@ let previousWidth = window.innerWidth;
 
 window.addEventListener("resize", function() {
     const currentWidth = window.innerWidth;
-    if(currentWidth !== previousWidth) {
+
+    const isSearching = document.activeElement.tagName.toLowerCase() === 'input';
+
+    if(currentWidth !== previousWidth && !isSearching) {
         this.location.href="index.html";
     }
     previousWidth = currentWidth;
