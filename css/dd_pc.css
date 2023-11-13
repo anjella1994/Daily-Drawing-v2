@@ -11,7 +11,7 @@ body {
     overflow-x: hidden; /*가로 스크롤 안 생기게*/
 }
 header {
-    width: 100vw;
+    position: relative;
     height: 4vw;
 }
 main {
@@ -20,6 +20,18 @@ main {
 }
 footer {
     height: 3vw;
+}
+
+/* 헤더 레이아웃 */
+#searchBar {
+    position: fixed; top: 1vw; right: 1vw;
+    display: grid;
+    grid-template-columns: 10vw 1vw;
+    grid-template-rows: 1.5vw;
+}
+#searchBox input {
+    box-sizing: border-box;
+    width: 9.5vw; height: 1.5vw;
 }
 
 /* 캘린더 레이아웃 */
@@ -35,10 +47,10 @@ footer {
     filter:grayscale(100%);
 }
 
-/* 캘린더 마우스 오버 시 날짜 표시 */
+/* 캘린더 마우스 오버 시 나타나는 요소 */
 .image div {
     opacity: 0;
-    height: 2vw;
+    width: 100%; height:100%;
 }
 .image div.active { /*자바스크립트 이용해 마우스 오버 또는 터치 시 .active 추가*/
     opacity: 1; 
@@ -71,6 +83,10 @@ html div {
 .blank {
     border-left: 2px solid #D15837;
     background-color: #ddd;
+}
+#searchText {
+    background-color: #eee;
+    border: 1px solid #ccc;
 }
 
 /* z-index 모음 */
@@ -107,8 +123,9 @@ html div {
     text-align: left;
     padding-left:0.7vw;
 }
+
 .image div { /*날짜 박스*/
-    font: normal normal 500 0.9rem/2vw Inter !important;
+    font: normal normal 500 0.9rem/2vw Inter;
     color: #f0f0f0;
     text-align: center;
 }
@@ -117,6 +134,7 @@ html div {
     color: #f0f0f0;
     padding: 0 0.5vw;
 }
+
 footer div{
     font: normal normal 300 1rem/3vw Karla;
     color: #777;
@@ -124,6 +142,21 @@ footer div{
 }
 footer div span {
     font-weight: 500;
+}
+
+::placeholder {
+    font: normal normal 300 0.9rem/1.5vw Karla;
+    color: #777;
+}
+#searchText {
+    font: normal normal 300 0.9rem/1.5vw "Gothic A1";
+    color: #555;
+    padding-left: 0.5vw;
+}
+#search {
+    font: normal normal 300 1.2rem/1.5vw Karla;
+    color: #777;
+    text-align: center;
 }
 
 /*미디어쿼리*/

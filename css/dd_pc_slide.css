@@ -43,6 +43,27 @@ footer {
     text-align: center; line-height: 2.6vw; /* 수평 수직 정렬 */
 }
 
+#searchBar {
+    position: fixed; top: 1vw; right: 1vw;
+    display: grid;
+    grid-template-columns: 10vw 1vw;
+    grid-template-rows: 1.5vw;
+}
+#searchBox input {
+    box-sizing: border-box;
+    width: 9.5vw; height: 1.5vw;
+}
+#searchResults {
+    position: absolute; top: 100%;
+    width: 9.5vw; max-height: 30vw;
+    overflow: scroll;
+    display: none; /*평소엔 안 보이게*/
+}
+#searchResults div {
+    height: 2vw;
+    overflow: hidden;
+}
+
 /* 네비게이터 레이아웃 */
 nav {
     display: grid;
@@ -104,6 +125,22 @@ html div {
     border-left: 1px solid #777;
     background-color: #eee;
 }
+#searchText {
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+#searchResults {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+}
+
+/* z-index 모음 */
+#searchBar {
+    z-index : 5;
+}
+#calendar {
+    z-index: 0;
+}
 
 /* 폰트 모음 */
 #title {
@@ -152,6 +189,26 @@ footer div {
 }
 footer div span {
     font-weight: 700;
+}
+
+::placeholder {
+    font: normal normal 300 0.9rem/1.5vw Karla;
+    color: #777;
+}
+#searchText {
+    font: normal normal 300 0.9rem/1.5vw "Gothic A1";
+    color: #555;
+    padding-left: 0.5vw;
+}
+#search {
+    font: normal normal 300 1.2rem/1.5vw Karla;
+    color: #777;
+    text-align: center;
+}
+#searchResults div {
+    font: normal normal 300 0.8rem/2vw "Gothic A1";
+    color: #555;
+    padding-left: 0.5vw;
 }
 
 /* 미디어쿼리 */
