@@ -19,11 +19,14 @@ function reverseOrder() {
             //월 구분선 수정
             firstBoxes.forEach((firstBox) => {firstBox.style.borderBottom = "2px solid #777";});
             lastBoxes.forEach((lastBox) => {lastBox.style.borderBottom = "1px solid #ccc";});
-            //날짜, 메뉴바 초기값 수정
+
+            if(!searchOn) {
+                //날짜, 메뉴바 초기값 수정
             updateDate(2022, "april");
             clickedYear = 2022; //clickedYear의 초기값 변경 
             setNav(2022); //메뉴 상태 초기값 변경 
             window.scrollTo(0,0);
+            }
             
             reverseBttn.textContent = "∨ oldest first";
             reverseOn = true;
@@ -35,11 +38,14 @@ function reverseOrder() {
             //월 구분선 수정
             firstBoxes.forEach((firstBox) => {firstBox.style.borderBottom = "1px solid #ccc";});
             lastBoxes.forEach((lastBox) => {lastBox.style.borderBottom = "2px solid #777";});
-            //날짜, 메뉴바 초기값 수정
-            updateDate(2020, "june");
-            clickedYear = 2020;
-            setNav(2020);
-            window.scrollTo(0,0);
+
+            if(!searchOn) {
+                //날짜, 메뉴바 초기값 수정
+                updateDate(2020, "june");
+                clickedYear = 2020;
+                setNav(2020);
+                window.scrollTo(0,0);
+            }
 
             reverseBttn.textContent = "∧ latest first";
             reverseOn = false;

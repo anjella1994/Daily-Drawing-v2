@@ -18,7 +18,12 @@ function toggleNav() {
     }
 }
 //날짜 바 누르면 nav 나타나기 & 사라지기 
-dateBar.addEventListener("click", () => toggleNav());
+dateBar.addEventListener("click", () => {
+    //검색 중이 아닐 때에만 활성화
+    if(!searchOn) {
+        toggleNav();
+    }
+});
 
 ////////////////////////////////////////
 //두 번째 명령 : 메뉴에서 연, 월 누르면 해당 날짜로 이동 
@@ -108,3 +113,6 @@ monthNavs.forEach((monthNav, i) => {
         }
     });
 });
+
+
+

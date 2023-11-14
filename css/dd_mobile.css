@@ -5,7 +5,7 @@
 /* 전체 레이아웃 */
 body {
     position: relative; /* 하위 요소에 sticky 지정하려면 필요 */
-    height: 10165vw; /* 헤더 30vw + 메인 15*674vw + 푸터 25vw */
+    min-height: 30vw; /* 헤더 30vw + 메인 15*674vw + 푸터 25vw */
     margin: 0;
     background-color: #f5f5f5;
 }
@@ -14,17 +14,17 @@ header {
     background-color: #f5f5f5;
 }
 nav {
-    position: sticky;
+    position: absolute;
     top: 30vw;
     width: 100vw;
     background-color: #eee;
 }
 main {
-    position: absolute; top: 30vw; /*nav가 생기는 것에 영향 받지 않음 */
+    position: relative; top: 0; /*nav가 생기는 것에 영향 받지 않음 */
 }
 footer {
-    position: absolute; top: 10140vw; /*nav가 생기는 것에 영향 받지 않음 */
-    width: 100vw;   
+    position: relative; top: 0; /*nav가 생기는 것에 영향 받지 않음 */
+    width: 100vw; height: 30vw;
 }
 
 /* 헤더 레이아웃 */

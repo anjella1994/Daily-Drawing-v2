@@ -38,8 +38,7 @@ let y = years[0];
 //연, 월 초기값 화면에 업데이트
 updateDate(y, m);
 
-//스크롤 시 연, 월 화면에 업데이트 (+reverse 판단 여부 추가)
-window.addEventListener("scroll", function() {
+function updateDateByScroll() {
     let h = window.scrollY;
     if (!reverseOn) {
         for (let i = years.length - 1; i >= 0; i--) {
@@ -69,5 +68,12 @@ window.addEventListener("scroll", function() {
         }
     }
     updateDate(y, m);
+}
+
+//스크롤 시 연, 월 화면에 업데이트 (+reverse 판단 여부 추가)
+window.addEventListener("scroll", function() {
+    if(!searchOn) {
+        updateDateByScroll();
+    }
 });
 
