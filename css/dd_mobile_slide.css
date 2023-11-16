@@ -12,9 +12,9 @@ body {
     height: 20vw;
 }
 #dateBar {
-    height: 10vw;
     display: grid;
     grid-template-columns: 10vw 25vw 30vw 25vw 10vw;
+    height: 10vw;
 }
 #imageTitle {
     height: 10vw;
@@ -24,6 +24,9 @@ body {
 #imageBox img {
     width: 100vw;
     display: block;
+}
+#imageBox div {
+    height: 100vw;
 }
 #back { /* 뒤로 가기 버튼 */
     position: fixed; bottom: 0;
@@ -82,6 +85,11 @@ html div {
 #imageTitle {
     font: normal normal 300 0.9rem/10vw "Gothic A1";
     color: #333;
+    text-align: center;
+}
+#imageBox div {
+    font: normal normal 300 0.9rem/100vw Karla;
+    color: #777;
     text-align: center;
 }
 #back {
