@@ -1,14 +1,19 @@
-const dateNumBoxes = document.querySelectorAll(".image div");
+//---------------------- 메인 이벤트 핸들러 ----------------------//
+
 document.addEventListener("DOMContentLoaded", function() {
-    //마우스 갖다대면 생기는 날짜 박스
-    dateNumBoxes.forEach(function(dateBox, index) { 
-        function goToSlide() {
-            //클릭한 div의 인덱스를 localstorage에 저장
-            localStorage.setItem("clickedDivNum", index);
-            //이미지 슬라이드 페이지로 이동 
-            window.location.href = "index-pc-slide.html";
-        }
-        dateBox.addEventListener("click", goToSlide);
-        dateBox.addEventListener("touchstart", goToSlide);    
+    //마우스 오버 시 나타나는 날짜 텍스트 클릭하면
+    dateNums.forEach((dateNum, i) => {
+        dateNum.addEventListener("click", () => goToSlide(i));
+        dateNum.addEventListener("touchstart", () => goToSlide(i));    
     });
 });
+
+//---------------------- 주요 함수 선언 ----------------------//
+
+//슬라이드 페이지로 이동하기
+function goToSlide(i) {
+    //클릭한 dateBox의 인덱스를 localstorage에 저장
+    localStorage.setItem("drawingIndex", i);
+    //이미지 슬라이드 페이지로 이동 
+    window.location.href = "index-pc-slide.html";
+}

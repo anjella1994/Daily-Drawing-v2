@@ -9,12 +9,8 @@
 <body>
     <header>
         <div id="title">drawing diary</div>
-        <div id="searchBar">
-            <div id="searchBox"><input id="searchText" type="text" placeholder="search" onkeydown="searchOnEnter(event)"></div>
-            <div id="search">↵</div>
-            <div id="searchResults" onclick="search()"></div>
-        </div>
-        <div id="calendar">
+        <div id="dateBar">
+            <div class="day"></div>
             <div class="day"></div>
             <div class="day"></div>
             <div class="day">m</div>
@@ -58,6 +54,7 @@
 
             <div class="year"></div>
             <div class="month"></div>
+            <div id="below">﹀</div>
             <div class="date"></div>
             <div class="date"></div>
             <div class="date"></div>
@@ -96,11 +93,8 @@
             <div class="date"></div>
             <div class="date"></div>
             <div class="empty"></div>
-
-            <div id="below">﹀</div>
         </div>
-    </header>
-    <nav>
+        <nav>
         <div class="year">2020</div>
         <div class="year">2021</div>
         <div class="year">2022</div>
@@ -117,7 +111,13 @@
         <div class="month">october</div>
         <div class="month">november</div>
         <div class="month">december</div>
-    </nav>   
+        </nav> 
+        <div id="searchBar">
+            <input id="searchBox" type="text" placeholder="search">
+            <div id="searchEnter">↵</div>
+            <div id="searchResults" onclick="search()"></div>
+        </div>
+    </header>
     <main>  
         <div id="drawing">
             <div></div>
@@ -136,12 +136,10 @@
             © 2023 &nbsp;<span>Daeun Kim</span> &nbsp;All rights reserved.
         </div>
     </footer>
-    <script src="js/p-slide-getDate.js"></script>
-    <script src="js/p-slide-getTitle.js"></script>
-    <script src="js/p-slide-getImage.js"></script>
+    <script src="js/p-slide-setup.js"></script>
+    <script src="js/p-slide-fillSlide.js"></script>
     <script src="js/p-slide-moveSlide.js"></script>
     <script src="js/p-slide-nav.js"></script>
-    <script src="js/p-slide-goBack.js"></script>
     <script src="js/p-slide-search.js"></script>
     <script src="js/viewportRefresh.js"></script>
 </body>

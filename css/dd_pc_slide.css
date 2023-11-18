@@ -2,80 +2,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 그림 한 칸 2vw*2vw */
-
 /* 전체 레이아웃 */
 body {
     margin: 0;
-    position: relative;
-    width: 100vw;
-    overflow-x: hidden;
     background-color: #f5f5f5;
+    overflow-x: hidden;
 }
 header {
-    height: 7.5vw;
-}
-nav {
-    position: absolute; 
-    top: 7.5vw; /* 헤더 높이 */
+    position: relative;
+    width: 100vw; height: 7.5vw;
 }
 main {
-    height: 40vw;
+    width: 100vw; height: 40vw;
 }
 footer {
-    height: calc(100vh - 47.5vw);
+    width: 100vw; height: calc(100vh - 47.5vw);
     background-color: #ddd;
 }
 
 /* 헤더 레이아웃 */
+/* 제목 */
 #title {
-    height: 4vw;
+    margin: 0 auto;
+    width: 20vw; height: 4vw;
 }
-#calendar {
+/* 날짜 바 */
+#dateBar {
     position: relative;
     display: grid;
-    grid-template-columns: 4vw 9vw repeat(37, 2vw) 13vw;
+    grid-template-columns: 4vw 7vw 2vw repeat(37, 2vw) 13vw;
     grid-template-rows: 1.5vw 2vw;
 }
-#below {
-    position: absolute; top: 1.5vw; left: 11vw;
-    width: 2vw; height: 2vw;
-    text-align: center; line-height: 2.6vw; /* 수평 수직 정렬 */
+/* 메뉴 */
+nav {
+    position: absolute; top: 7.5vw; 
+    display: grid;
+    grid-template-columns: 4vw 9vw;
+    grid-template-rows: repeat(12, 2vw);
+    grid-auto-flow: column;
+    /* 평상시 안 보이게 */
+    height: 0; overflow: hidden; 
+    /* 나타나거나 사라질 때 0.5s */
+    transition: all 0.5s; 
 }
-
+nav .empty {
+    grid-row: 5 / 14;
+}
+/* 검색창 */
 #searchBar {
     position: fixed; top: 1vw; right: 1vw;
     display: grid;
-    grid-template-columns: 10vw 1vw;
+    grid-template-columns: 9.5vw 1.5vw;
     grid-template-rows: 1.5vw;
 }
-#searchBox input {
+#searchBox {
     box-sizing: border-box;
     width: 9.5vw; height: 1.5vw;
 }
 #searchResults {
     position: absolute; top: 100%;
-    width: 9.5vw; max-height: 30vw;
+    width: 9.5vw; max-height: 30vw; 
     overflow: scroll;
-    display: none; /*평소엔 안 보이게*/
+    /*평상시 안 보이게*/
+    display: none; 
 }
 #searchResults div {
     height: 2vw;
     overflow: hidden;
 }
 
-/* 네비게이터 레이아웃 */
-nav {
-    display: grid;
-    grid-template-columns: 4vw 9vw;
-    grid-template-rows: repeat(12, 2vw);
-    grid-auto-flow: column;
-    height: 0; overflow: hidden; /* 평상시 안 보이게 초기 설정 */
-    transition: all 0.5s; /* 나타나거나 사라질 때 0.5s */
-}
-nav .empty {
-    grid-row: 4 / 13;
-}
 
 /* 메인 레이아웃 */
 #drawing {
@@ -83,19 +78,19 @@ nav .empty {
     grid-template-columns: 13vw 20vw 34vw 20vw 13vw;
     grid-template-rows: 38vw 2vw;
 }
-/* 이미지 */
+/* 그림 */
 #imageBox {
     grid-column: 2 / 5;
     text-align: center;
     padding: 2vw;
-    overflow: hidden; /*불필요한 여백 생기는 것 방지*/
+    /* 패딩으로 그림이 밀리면서 화면에 불필요한 여백 생기는 것 방지 */
+    overflow: hidden; 
 }
 #imageBox img{
-    width: 34vw;
-    height: 34vw;
+    width: 34vw; height: 34vw;
     object-fit: contain;
 }
-/* 제목 및 이동 버튼 */
+/* 제목 및 버튼 */
 #imageTitle {
     text-align: center;
 }
@@ -107,17 +102,30 @@ nav .empty {
     padding-right: 1vw;
 }
 
-/* 선 넣기, 면 채우기 */
+/* 이벤트 관련 모음 */
+.date.active {
+    background-color: #D15837;
+    color: #f0f0f0;
+    font-weight: 500;
+}
+nav .year.inactive, nav .month.inactive{
+    color: #ddd;
+}
+#searchResults div.active {
+    background-color: #ddd;
+}
+
+/* 선 스타일, 면 스타일 모음 */
 html div {
     box-sizing: border-box;
 }
-#calendar div, #drawing div {
+#dateBar div, #drawing div {
     border-bottom: 2px solid #777;
 }
-#calendar .year, #calendar .month {
+#dateBar .year, #dateBar #below {
     border-right: 1px solid #777;
 }
-#calendar .empty {
+#dateBar .empty {
     border-left: 1px solid #777;
 }
 #imageTitle {
@@ -125,30 +133,32 @@ html div {
     border-left: 1px solid #777;
     background-color: #eee;
 }
-#searchText {
-    background-color: #eee;
+#searchBox {
     border: 1px solid #ccc;
+    background-color: #eee;
 }
 #searchResults {
-    background-color: #f5f5f5;
     border: 1px solid #ccc;
+    background-color: #f5f5f5;
 }
 
 /* z-index 모음 */
 #searchBar {
     z-index : 5;
 }
-#calendar {
+#dateBar {
     z-index: 0;
 }
 
 /* 폰트 모음 */
+/* 제목 */
 #title {
-    font: normal normal 500 2.25rem/4.32vw Karla;
+    font: normal normal 500 2.25rem/4vw Karla;
     color: #555;
     letter-spacing: 0.225rem;
     text-align: center;
 }
+/* 날짜 바, 메뉴 */
 .day {
     font: normal normal 300 1rem/1.5vw Karla;
     color: #333;
@@ -170,7 +180,19 @@ html div {
     color: #333;
     text-align: center;
 }
-#imageBox { /*이미지 없을 때 '(none)'텍스트*/
+.date.active {
+    /* 현재 날짜 */
+    font-weight: 500;
+    color: #f0f0f0;
+}
+#below {
+    font: normal normal 300 1rem/2.6vw Karla;
+    color: #333;
+    text-align: center;
+}
+/* 그림 */
+#imageBox { 
+    /* 이미지 없을 때 나오는 'none' */
     font: normal normal 300 1rem/32vw Karla;
     color: #777;
 }
@@ -182,6 +204,7 @@ html div {
     font: normal normal 300 1rem/2vw Karla;
     color: #333;
 }
+/* 푸터 */
 footer div {
     font: normal normal 300 1rem/3vw Karla;
     color: #777;
@@ -190,17 +213,17 @@ footer div {
 footer div span {
     font-weight: 700;
 }
-
+/* 검색창 */
 ::placeholder {
     font: normal normal 300 0.9rem/1.5vw Karla;
     color: #777;
 }
-#searchText {
+#searchBox {
     font: normal normal 300 0.9rem/1.5vw "Gothic A1";
     color: #555;
     padding-left: 0.5vw;
 }
-#search {
+#searchEnter {
     font: normal normal 300 1.2rem/1.5vw Karla;
     color: #777;
     text-align: center;
@@ -208,7 +231,7 @@ footer div span {
 #searchResults div {
     font: normal normal 300 0.8rem/2vw "Gothic A1";
     color: #555;
-    padding-left: 0.5vw;
+    padding: 0 0.5vw;
 }
 
 /* 미디어쿼리 */

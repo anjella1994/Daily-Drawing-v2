@@ -1,65 +1,63 @@
-const calendar = document.getElementById("calendar");
-const divs = calendar.querySelectorAll("#calendar > div");
+//---------------------- 메인 이벤트 핸들러 ----------------------//
 
-let currentMonth;
-let currentDay;
+//마우스 오버(or 터치)에 따라 일, 월, 요일 강조가 생기거나 없어짐 
+calendarBoxes.forEach((box, i) => {
+    //박스가 날짜 박스일 때
+    if (isDateBox(box)) {
+        //마우스 오버하면 강조 
+        box.addEventListener("mouseenter", () => dateOn(box, i));
+        box.addEventListener("mouseleave", () => dateOff(box, i));
+        //터치하면 강조
+        box.addEventListener("touchstart", (event) => {event.preventDefault(); dateOn(box, i);});
+        box.addEventListener("touchend", (event) => {event.preventDefault(); dateOff(box,i);});
+        //클릭하면 꺼짐 (슬라이드 페이지로 갔다가 돌아왔을 때 색이 여전히 칠해져 있는 것 방지)
+        box.addEventListener("click", () => dateOff(box, i));
+    }
+});
+//(참고) calendarBox 쓰는 이유는, 행과 열 계산이 훨씬 쉽기 때문
 
-//div 스타일 바꾸는 함수 
-function changeStyle (element, backgroundColor, color, font, textTransform) {
-    element.style.backgroundColor = backgroundColor;
-    element.style.color = color;
-    element.style.font = font;
-    element.style.textTransform = textTransform;
+//---------------------- 주요 함수 선언 ----------------------//
+
+//박스가 날짜 박스인지 확인하기 
+function isDateBox(box) {
+    for (let i = 0; i < dateBoxes.length; i++) {
+        if (box === dateBoxes[i]) {
+            return true;
+        }
+    }
+    return false;
 }
 
-//마우스 댄 날짜의 월, 요일 div 구하는 함수
-function getCurrentDate (i) { //div의 index
+//일, 월, 요일 강조하기
+function dateOn(box, i) {
+    //날짜 스타일 수정 
+    box.querySelector("div").classList.add("active");
+    //월, 요일 스타일 수정
+    getCurrentDate(i);
+    currentMonthBox.classList.add("active");
+    currentDayBox.classList.add("active");
+}
+
+//일, 월, 요일 강조 취소하기 
+function dateOff(box, i) {
+    //날짜 스타일 제거 
+    box.querySelector("div").classList.remove("active");
+    if(currentMonthBox && currentDayBox) {
+        getCurrentDate(i);
+        currentMonthBox.classList.remove("active");
+        currentDayBox.classList.remove("active");
+        currentMonthBox = currentDayBox = null;
+    }
+}
+
+//박스에 해당하는 월 박스, 요일 박스 찾기
+function getCurrentDate (i) { 
     //행 번호 (0부터 시작)
-    const rowNumber = Math.floor(i / 40); 
+    const rowNumber = Math.floor(i / 40);
     //열 번호 (0부터 시작)
     const columnNumber = i % 40;
-    //월 빨간색 표시
-    currentMonth = divs[rowNumber * 40 + 1];
-    currentDay = divs[columnNumber];
+    //월 - 동일한 행 1열
+    currentMonthBox = calendarBoxes[rowNumber * 40 + 1];
+    //일 - 동일한 열 0행
+    currentDayBox = calendarBoxes[columnNumber];
 }
-
-//마우스 댄 날짜에 해당하는 월, 요일 div에 강조 생기거나 없어지는 함수 
-function dateOn(div, i) {
-    let dateNumBox = div.querySelector("div");
-    dateNumBox.classList.add("active");
-    if(div.classList.contains("image") && !div.classList.contains("empty")){
-        getCurrentDate(i);
-        //월 빨간색 표시
-        changeStyle(currentMonth, "#D15837", "white", "normal normal 500 1rem/2vw Karla", "uppercase");
-        //요일 빨간색 표시
-        changeStyle(currentDay, "#D15837", "white", "normal normal 500 1rem/1.5vw Karla", "uppercase");
-    }
-}
-function dateOff(div, i) {
-    let dateNumBox = div.querySelector("div");
-    dateNumBox.classList.remove("active");
-    if(currentMonth && currentDay) {
-        getCurrentDate(i);
-        changeStyle(currentMonth, "transparent", "#333", "normal normal 300 1rem/2vw Karla", "lowercase");
-        changeStyle(currentDay, "transparent", "#333", "normal normal 300 1rem/1.5vw Karla", "lowercase");
-        currentMonth = currentDay = null;
-    }
-}
-
-//마우스, 터치에 따라 월, 요일 강조가 생기거나 없어지는 함수 실행
-divs.forEach((div, i) => {
-    div.addEventListener("mouseenter", () => dateOn(div, i));
-    div.addEventListener("mouseleave", () => dateOff(div, i));
-    div.addEventListener("touchstart", (event) => {
-        event.preventDefault();
-        dateOn(div, i);
-    });
-    div.addEventListener("touchend", (event) => {
-        event.preventDefault();
-        dateOff(div,i);
-    });
-    div.addEventListener("click", () => dateOff(div, i));
-});
-
-
-    

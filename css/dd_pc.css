@@ -2,68 +2,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 그림 한 칸 2vw*2vw */
-
 /* 전체 레이아웃 */
 body {
     margin: 0;
     background: #f5f5f5;
-    overflow-x: hidden; /*가로 스크롤 안 생기게*/
+    /*가로 스크롤 안 생기게*/
+    overflow-x: hidden; 
 }
 header {
     position: relative;
-    height: 4vw;
+    width: 100vw; height: 4vw;
 }
 main {
     position: relative;
-    height: 47.5vw; /*23행 + 요일 1.5vw*/
+    /* 1.5vw + (2vw * 23행) */
+    width: 100vw; height: 47.5vw; 
 }
 footer {
-    height: 3vw;
+    width: 100vw; height: 3vw;
 }
 
 /* 헤더 레이아웃 */
+#title {
+    margin: 0 auto;
+    width: 20vw;
+}
 #searchBar {
     position: fixed; top: 1vw; right: 1vw;
     display: grid;
-    grid-template-columns: 10vw 1vw;
+    grid-template-columns: 9.5vw 1.5vw;
     grid-template-rows: 1.5vw;
 }
-#searchBox input {
+#searchBox {
     box-sizing: border-box;
     width: 9.5vw; height: 1.5vw;
 }
 
-/* 캘린더 레이아웃 */
+/* 메인 레이아웃 */
 #calendar {
-    width: 100vw;
     display: grid;
     grid-template-columns: 4vw 9vw repeat(37, 2vw) 13vw;
     grid-template-rows: 1.5vw repeat(23, 2vw);
 }
 #thumbnails {
-    position: absolute; top: 1.5vw; left : 13vw;
+    position: absolute; top: calc(1.5vw - 1px); left : 13vw;
     width: 74vw; height: 46vw;
-    filter:grayscale(100%);
+    filter: grayscale(100%);
 }
 
-/* 캘린더 마우스 오버 시 나타나는 요소 */
+/* 이벤트 관련 모음 */ 
+
+/* 마우스 오버 - 날짜 초기세팅*/
 .image div {
     opacity: 0;
     width: 100%; height:100%;
 }
-.image div.active { /*자바스크립트 이용해 마우스 오버 또는 터치 시 .active 추가*/
+/* 마우스 오버 - 현재 날짜 */
+.image div.active { 
     opacity: 1; 
-    background: #D15837;
+    background-color: #D15837;
 }
-/* 캘린더 마우스 오버 시 나타나는 제목 */
+/* 마우스 오버 - 현재 월, 요일 */
+.month.active, .day.active {
+    font-weight: 500; 
+    color: #f0f0f0;
+    text-transform: uppercase;
+    background-color: #D15837;
+}
+/* 마우스 오버 - 제목 */
 .imageTitle {
     position: absolute;
     /* top, left, height는 자바스크립트로 지정*/
     background-color: #555;
 }
+/* 검색 - 검색 결과인 날짜 박스 */
+.image.result {
+    border: 1px solid #D15837;
+    z-index: 10;
+}
+/* 검색 - 검색 결과인 날짜 */
+.image.result div {
+    height: calc(2vw - 2px);
+}
+/* 검색 - 검색 결과가 아닌 날짜 박스 */
+.image:not(.empty).notResult {
+    background-color: rgba(221, 221, 221, 0.9);
+}
+/* 검색 - 날짜가 아닌 박스 */
+.image.empty.notResult {
+    background-color: rgba(221, 221, 221, 0.9);
+}
 
-/* 선 넣기, 면 채우기 */
+
+/* 선 스타일, 면 스타일 모음 */
 html div {
     box-sizing: border-box;
 }
@@ -84,29 +115,34 @@ html div {
     border-left: 2px solid #D15837;
     background-color: #ddd;
 }
-#searchText {
-    background-color: #eee;
+#searchBox {
     border: 1px solid #ccc;
+    background-color: #eee;
 }
 
 /* z-index 모음 */
-.image div, .imageTitle { /*날짜 박스, 제목 박스*/
-    z-index: 10 !important;
+/* 날짜, 제목 박스(마우스오버) */
+.image div, .imageTitle { 
+    z-index: 10;
 }
-#calendar div { /*캘린더 선*/
+/* 캘린더 선 */
+#calendar div { 
     z-index: 5;
 }
-#thumbnails, .blank {
+/* 썸네일 */
+#thumbnails {
     z-index: 0;
 }
 
 /* 폰트 모음 */
+/* 헤더 */
 #title {
-    font: normal normal 500 2.25rem/4.32vw Karla;
+    font: normal normal 500 2.25rem/4vw Karla;
     color: #555;
-    letter-spacing: 0.225rem;
     text-align: center;
+    letter-spacing: 0.225rem;
 }
+/* 메인 */
 .day {
     font: normal normal 300 1rem/1.5vw Karla;
     color: #333;
@@ -120,21 +156,21 @@ html div {
 .month {
     font: normal normal 300 1rem/2vw Karla;
     color: #333;
-    text-align: left;
-    padding-left:0.7vw;
+    padding-left: 0.7vw;
 }
-
-.image div { /*날짜 박스*/
+/*날짜 박스*/
+.image div { 
     font: normal normal 500 0.9rem/2vw Inter;
     color: #f0f0f0;
     text-align: center;
 }
-.imageTitle { /*제목 박스*/
+/*제목 박스*/
+.imageTitle { 
     font: normal normal 400 0.8rem/2vw "Gothic A1";
     color: #f0f0f0;
     padding: 0 0.5vw;
 }
-
+/* 푸터 */
 footer div{
     font: normal normal 300 1rem/3vw Karla;
     color: #777;
@@ -143,23 +179,23 @@ footer div{
 footer div span {
     font-weight: 500;
 }
-
+/* 검색창 */
 ::placeholder {
     font: normal normal 300 0.9rem/1.5vw Karla;
     color: #777;
 }
-#searchText {
+#searchBox {
     font: normal normal 300 0.9rem/1.5vw "Gothic A1";
-    color: #555;
+    color: #555; 
     padding-left: 0.5vw;
 }
-#search {
+#searchEnter {
     font: normal normal 300 1.2rem/1.5vw Karla;
     color: #777;
     text-align: center;
 }
 
-/*미디어쿼리*/
+/* 미디어쿼리 */
 @media screen and (min-width: 1920px) {html {font-size: 16px;}}
 @media screen and (min-width: 1680px) and (max-width: 1919px) {html {font-size: 15px;}}
 @media screen and (min-width: 1440px) and (max-width: 1679px) {html {font-size: 14px;}}

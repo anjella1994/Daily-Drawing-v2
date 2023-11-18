@@ -1,4 +1,18 @@
-const imageTitle = document.querySelector("#imageTitle");
+/* ----------------- DOM 요소 ----------------- */
+
+/* 제목 */
+const pageTitle = document.querySelector("#title");
+/* 메인 */
+const main = document.querySelector("main");
+/* 캘린더 */
+const calendar = document.querySelector("#calendar");
+const calendarBoxes = calendar.querySelectorAll("#calendar > div"); // 960개 (40열 * 24행)
+/* 날짜 박스, (날짜 박스 안의) 날짜 텍스트, 날짜 아닌 박스 */
+const dateBoxes = document.querySelectorAll("div.image:not(.empty)"); // 674개 (2020년 6월 19일 ~ 2022년 4월 23일)
+const dateNums = document.querySelectorAll("div.image:not(.empty) div"); // 674개
+const nonDateBoxes = document.querySelectorAll("div.image.empty") 
+
+/* ----------------- 배열 선언 ----------------- */
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -674,12 +688,16 @@ const titles = [
     "hide your beauty here", 
     "small dream", 
     "나가지 못하는 아이들", 
-];
-function inputTitle(i) {
-    if (titles[i] !== "") {
-        imageTitle.textContent = titles[i];
-    } else {
-        imageTitle.textContent = "休(day off)"
-    }
-}    
-inputTitle(clickedDivNum);
+]; //674개
+
+/* ----------------- 변수 선언 ----------------- */
+
+/* (div) 마우스 오버한 박스 */
+let currentBox; 
+/* (div) 마우스 오버 시 해당 월 박스 */
+let currentMonthBox;
+/* (div) 마우스 오버 시 해당 요일 박스 */
+let currentDayBox;
+/* (div) 마우스 오버한 박스의 제목 */
+let currentTitle;
+
