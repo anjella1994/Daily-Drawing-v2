@@ -795,5 +795,3 @@ function getIndex(y, m, d) {
     currentFullDate.setHours(9, 0, 0, 0);
     drawingIndex = dateArray.findIndex(date => date.getTime() === currentFullDate.getTime());
 }
-
-
