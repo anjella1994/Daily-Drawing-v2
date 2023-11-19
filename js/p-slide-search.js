@@ -33,9 +33,7 @@ searchBox.addEventListener("input", () => {
 document.addEventListener("keydown", (event) => {
     if (searchBox.value !== "" && searchResults.innerHTML !== "") {
         focusTitle(event);
-        if(!isSelected) {
-            selectTitle(event);
-        }
+        selectTitle(event);
     }
 });
 // 마우스로 선택하는 경우 (클릭))
@@ -51,7 +49,7 @@ titleDivs.forEach((titleDiv) => {
 
 // 4단계 : 검색 싷행 
 // 키보드로 엔터 치는 경우  
-document.addEventListener("keydown", (event) => {
+searchBox.addEventListener("keydown", (event) => {
     if(isSelected) {
         if(event.key === "Enter") {
             isSearched = true;
@@ -122,18 +120,20 @@ function focusTitle(event) {
 
 // 사용자가 키보드로 가리키는 항목 선택하기
 function selectTitle(event) {
-    if (event.key === "Enter") {
-        if (searchIndex > -1) {
-            //선택한 텍스트로 검색창 치우기
-            searchBox.value = searchedTitleDivs[searchIndex].textContent;
-            //검색 목록 사라지기
-            searchResults.style.display = "none";
-            //'선택함' 상태 변경
-            isSelected = true;
-        }
-    } 
+    if (!isSearched){
+        if (event.key === "Enter") {
+            if (searchIndex > -1) {
+                //선택한 텍스트로 검색창 채우기
+                searchBox.value = searchedTitleDivs[searchIndex].textContent;
+                //검색 목록 사라지기
+                searchResults.style.display = "none";
+                //'선택함' 상태 변경
+                isSelected = true;
+            }
+        } 
+    }
 }
-
+    
 // 검색 실행하기 
 function search() {
     if(isSelected && isSearched) {

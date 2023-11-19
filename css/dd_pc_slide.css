@@ -62,7 +62,7 @@ nav .empty {
 #searchResults {
     position: absolute; top: 100%;
     width: 9.5vw; max-height: 30vw; 
-    overflow: scroll;
+    overflow-y: scroll;
     /*평상시 안 보이게*/
     display: none; 
 }
