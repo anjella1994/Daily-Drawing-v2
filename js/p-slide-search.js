@@ -29,13 +29,6 @@ searchBox.addEventListener("input", () => {
 });
 
 // 3단계 : 검색 목록 탐색 후 선택 
-// 키보드로 탐색 및 선택하는 경우 (화살표 업다운, 엔터)
-document.addEventListener("keydown", (event) => {
-    if (searchBox.value !== "" && searchResults.innerHTML !== "") {
-        focusTitle(event);
-        selectTitle(event);
-    }
-});
 // 마우스로 선택하는 경우 (클릭))
 titleDivs.forEach((titleDiv) => {
     if(!isSelected) {
@@ -47,20 +40,36 @@ titleDivs.forEach((titleDiv) => {
     }
 });
 
+// 키보드로 탐색 및 선택하는 경우 (화살표 업다운, 엔터)
+document.addEventListener("keydown", searchAndSelect);
+
+function searchAndSelect(event) {
+    if (searchBox.value !== "" && searchResults.innerHTML !== "") {
+        if (!isSelected) {
+            focusTitle(event);
+            selectTitle(event);
+        } 
+    }
+}
+
 // 4단계 : 검색 싷행 
 // 키보드로 엔터 치는 경우  
-searchBox.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", searchByEnter);
+function searchByEnter(event) {
     if(isSelected) {
         if(event.key === "Enter") {
             isSearched = true;
             search();
         }
     }
-});
+}
+
 // 마우스로 엔터 버튼 클릭하는 경우
 searchEnter.addEventListener("click", () => {
-    isSearched = true;
-    search();
+    if(isSelected){
+        isSearched = true;
+        search();
+    }
 });
 
 //---------------------- 주요 함수 선언 ----------------------//
@@ -120,19 +129,18 @@ function focusTitle(event) {
 
 // 사용자가 키보드로 가리키는 항목 선택하기
 function selectTitle(event) {
-    if (!isSearched){
-        if (event.key === "Enter") {
-            if (searchIndex > -1) {
-                //선택한 텍스트로 검색창 채우기
-                searchBox.value = searchedTitleDivs[searchIndex].textContent;
-                //검색 목록 사라지기
-                searchResults.style.display = "none";
-                //'선택함' 상태 변경
-                isSelected = true;
-            }
-        } 
+    if (event.key === "Enter" && searchIndex > -1) {
+        //선택한 텍스트로 검색창 채우기
+        searchBox.value = searchedTitleDivs[searchIndex].textContent;
+        //검색 목록 사라지기
+        searchResults.style.display = "none";
+        //'선택함' 상태 변경
+        isSelected = true;
+        document.removeEventListener("keydown", searchByEnter);
+        document.addEventListener("keydown", searchByEnter);
     }
-}
+} 
+
     
 // 검색 실행하기 
 function search() {
@@ -143,6 +151,7 @@ function search() {
                 updateSlide(i);
                 searchBox.value = "";
         searchResults.innerHTML = "";
+        isSelected = false;
         isSearched = false;
             }
         });
