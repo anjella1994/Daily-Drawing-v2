@@ -1,44 +1,65 @@
-///////////////////////////////////////
-//첫 번째 명령 : 날짜 바 누르면 메뉴 나타나거나 사라지기 
+//---------------------- 메인 함수 실행 & 이벤트 핸들러 ----------------------//
 
-const dateBar = document.querySelector("#dateBar");
-const nav = document.querySelector("nav");
-let navOn = false;
+//메뉴 초기 설정
+setNav(y);
 
-//nav 토글 함수 선언
-function toggleNav() {
-    if (navOn) {
-        nav.style.height = "0";
-        nav.style.borderBottom = "0";
-        navOn = false;
-    } else {
-        nav.style.height = (window.innerHeight / window.innerWidth < 1.5) ? "90vw" : "120vw";
-        nav.style.borderBottom = "1px solid #777";
-        navOn = true;
-    }
-}
-//날짜 바 누르면 nav 나타나기 & 사라지기 
-dateBar.addEventListener("click", () => {
-    //검색 중이 아닐 때에만 활성화
-    if(!searchOn) {
-        toggleNav();
-    }
+//날짜 바 누르면 메뉴 토글 (단, 검색 중 아닐 때만 실행)
+dateBar.addEventListener("click", () => !searchOn && toggleNav());
+
+//메뉴의 연 클릭 시 활성화 연, 월 변경
+yearNavs.forEach((yearNav, i) => {
+    yearNav.addEventListener("click", () => {
+        currentNavYear = i + 2020;
+        setNav(currentNavYear);
+    });
+}); 
+
+//메뉴의 월 클릭 시 해당 월로 스크롤 이동하고 메뉴 사라짐  
+monthNavs.forEach((monthNav, i) => {
+    monthNav.addEventListener("click", () => {
+        if (activeMonths.includes(i)) {
+            let scrollTo;
+            if (!reverseOn) {
+                //정배열일 때
+                switch (currentNavYear) {
+                    case 2020 :  
+                        scrollTo = monthBoundary[i - 5];
+                        break;
+                    case 2021 :
+                        scrollTo = monthBoundary[i + 7];
+                        break;
+                    case 2022 :
+                        scrollTo = monthBoundary[i + 19];
+                        break;
+                }
+            } else {
+                //역배열일 때
+                switch (currentNavYear) {
+                    case 2020 :
+                        scrollTo = monthBoundaryRev[i - 5];
+                        break;
+                    case 2021 :
+                        scrollTo = monthBoundaryRev[i + 7];
+                        break;
+                    case 2022 :
+                        scrollTo = monthBoundaryRev[i + 19];
+                        break;
+                }
+            }
+            window.scrollTo({top: scrollTo, behavior: "smooth"});
+            toggleNav();
+        }
+    });
 });
 
-////////////////////////////////////////
-//두 번째 명령 : 메뉴에서 연, 월 누르면 해당 날짜로 이동 
+//스크롤 이동하면 메뉴 다시 세팅
+window.addEventListener("scroll", () => {
+    setNav(currentNavYear);
+});
 
-const yearNavs = document.querySelectorAll("nav .year");
-const monthNavs = document.querySelectorAll("nav .month");
+//---------------------- 주요 함수 선언 ----------------------//
 
-//현재 그림에 해당하는 연도 
-let currentYear = Number(yearBox.textContent);
-//사용자가 메뉴에서 선택한 연도  
-let clickedYear = Number(yearBox.textContent); //아무것도 클릭하지 않았을 때 초기값
-//사용자가 메뉴에서 선택한 연도에 따른 활성화 월 목록
-let activeMonths = []; 
-
-//연에 따른 활성화 월 구분, 활성화 연월만 진한 글씨로 표시하는 함수 선언
+//메뉴 세팅(활성화 연도에 따라 활성화 월 구분하고, 활성화된 연월만 진한 글씨로 표시)
 function setNav(y) {
     switch (y) {
         case 2020:
@@ -59,60 +80,19 @@ function setNav(y) {
     }
 }
 
-//초기 메뉴 활성화 연, 월 세팅
-setNav(currentYear);
-
-//updateDate로 인해 스크롤해서 연도 바뀌면 메뉴 다시 세팅
-window.addEventListener("scroll", () => {
-    let newCurrentYear = Number(yearBox.textContent);
-    if (currentYear !== newCurrentYear) {
-        setNav(newCurrentYear);
+//메뉴 토글
+function toggleNav() {
+    if (navOn) {
+        nav.style.height = "0";
+        nav.style.borderBottom = "0";
+        navOn = false;
+    } else {
+        nav.style.height = (window.innerHeight / window.innerWidth < 1.5) ? "90vw" : "120vw";
+        nav.style.borderBottom = "1px solid #777";
+        navOn = true;
     }
-});
+}
 
-//메뉴의 연 클릭 시 활성화 연, 월 변경
-yearNavs.forEach((yearNav, i) => {
-    yearNav.addEventListener("click", () => {
-        clickedYear = i + 2020;
-        setNav(clickedYear);
-    });
-}); 
-
-//메뉴의 월 클릭 시 해당 월로 스크롤 이동하고 메뉴 사라짐  
-monthNavs.forEach((monthNav, i) => {
-    monthNav.addEventListener("click", () => {
-        if (activeMonths.includes(i)) {
-            let scrollTo;
-            if (!reverseOn) {
-                switch (clickedYear) {
-                    case 2020 :  
-                        scrollTo = monthBoundary[i - 5];
-                        break;
-                    case 2021 :
-                        scrollTo = monthBoundary[i + 7];
-                        break;
-                    case 2022 :
-                        scrollTo = monthBoundary[i + 19];
-                        break;
-                }
-            } else {
-                switch (clickedYear) {
-                    case 2020 :
-                        scrollTo = monthBoundaryRev[i - 5];
-                        break;
-                    case 2021 :
-                        scrollTo = monthBoundaryRev[i + 7];
-                        break;
-                    case 2022 :
-                        scrollTo = monthBoundaryRev[i + 19];
-                        break;
-                }
-            }
-            window.scrollTo({top: scrollTo, behavior: "smooth"});
-            toggleNav();
-        }
-    });
-});
 
 
 

@@ -1,3 +1,5 @@
+//---------------------- 메인 이벤트 핸들러 ----------------------//
+
 document.addEventListener("DOMContentLoaded", () => {
     //새로 고침하면 top으로 돌아가기
     window.addEventListener("beforeunload", () => {

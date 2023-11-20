@@ -1,4 +1,12 @@
-const imageTitle = document.querySelector("#imageTitle");
+/* ----------------- DOM 요소 ----------------- */
+//캘린더 요일,그림, 제목 박스
+const calendarBoxes = document.querySelectorAll("#calendar div");
+const dayBoxes = document.querySelectorAll("#calendar div:nth-child(4n+2)"); //674개
+const imageBoxes = document.querySelectorAll("#calendar div:not(.empty):nth-child(4n+3)"); //647개
+const titleBoxes = document.querySelectorAll("#calendar div:nth-child(4n)"); //674개
+
+/* ----------------- 배열 선언 ----------------- */
+const dayOfWeek = ["m", "t", "w", "t", "f", "s", "s"];
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -675,11 +683,19 @@ const titles = [
     "small dream", 
     "나가지 못하는 아이들", 
 ];
-function inputTitle(i) {
-    if (titles[i] !== "") {
-        imageTitle.textContent = titles[i];
-    } else {
-        imageTitle.textContent = "休(day off)"
-    }
-}    
-inputTitle(rowNum);
+
+/* ----------------- 초기 화면 요소 세팅 ----------------- */
+
+dayBoxes.forEach((dayBox, i) => {
+    dayBox.textContent = dayOfWeek[(i + 4) % 7];
+});
+
+imageBoxes.forEach((imageBox, i) => {
+    imageBox.style.backgroundImage = `url("thumbnails/thumbnails/no.${i}.jpg")`;
+    imageBox.style.backgroundSize = 'cover';
+    imageBox.style.backgroundPosition = 'center';
+});
+
+titleBoxes.forEach((titleBox, i) => {
+    titleBox.textContent = titles[i];
+});

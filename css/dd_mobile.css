@@ -67,15 +67,6 @@ nav .empty {
     width: 15vw; height: 15vw;
     object-fit: cover;
 }
-/* #thumbnails {
-    position: absolute; top: 0; left: 18vw;
-    width: 15vw; height: 10110vw;
-    overflow: hidden; 
-} 
-#thumbnails img {
-    display: block; 
-    width: 15vw; height: 1500vw; 
-} */
 #underBar {
     position:fixed; bottom: 0; left: 0;
     background-color: #f5f5f5;
@@ -84,9 +75,7 @@ nav .empty {
     grid-template-rows: 15vw;
 }
 #searchBox {
-    padding: 3vw 1.5vw;
-}
-#searchText {
+    margin: 3vw 1.5vw;
     box-sizing: border-box;
     width: 33vw; height: 9vw;
 }
@@ -121,7 +110,7 @@ html div {
 #underBar {
     border-top: 1px solid #777;
 }
-#searchText {
+#searchBox {
     background-color: #eee;
     border: 1px solid #ccc;
 }
@@ -133,12 +122,6 @@ header, #underBar{
 nav {
     z-index: 8;
 }
-/* #calendar > div {
-    z-index: 5;
-} */
-/* #thumnails img {
-    z-index: 0;
-} */
 
 /* 글꼴 모음 */
 #title {
@@ -187,12 +170,12 @@ nav {
     color: #777;
     text-align: center;
 }
-#searchText {
+#searchBox {
     font: normal normal 300 0.9rem/9vw "Gothic A1";
     color: #555;
     text-align: center;
 }
-#search {
+#searchEnter {
     font: normal normal 300 1.5rem/15vw Karla;
     color: #777;
     text-align: center;
@@ -202,7 +185,6 @@ nav {
     color: #555;
     text-align:right; padding-right: 4.5vw;
 }
-
 footer div{
     font: normal normal 300 0.8rem/15vw Karla;
     color: #777;

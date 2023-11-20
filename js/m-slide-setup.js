@@ -1,4 +1,29 @@
-const titleBoxes = document.querySelectorAll("#calendar div:nth-child(4n)");
+/* ----------------- DOM 요소 ----------------- */
+
+//제목
+const pageTitle = document.querySelector("#title");
+//연, 월, 일 박스
+const [yearBox, monthBox, dateBox] = document.querySelectorAll(".year, .month, .date");
+//제목 박스
+const titleBox = document.querySelector("#imageTitle");
+const imageBox = document.querySelector("#imageBox");
+//버튼 
+const prevBttn = document.querySelector("#prev");
+const nextBttn = document.querySelector("#next");
+const backBttn = document.querySelector("#back");
+
+/* ----------------- 배열 선언 ----------------- */
+
+//날짜 배열 (674개)
+const startDate = new Date('2020-06-19');
+const endDate = new Date('2022-04-23');
+const dateArray = [];
+for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
+    dateArray.push(new Date(date));
+} 
+//월 이름 배열 
+const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+//제목 배열
 const titles = [
     "굳은 날개 ", 
     "좁은 길", 
@@ -675,6 +700,17 @@ const titles = [
     "small dream", 
     "나가지 못하는 아이들", 
 ];
-for (i = 0; i < titles.length; i++) {
-    titleBoxes[i].textContent = titles[i];
-}
+
+/* ----------------- 변수 선언 ----------------- */
+
+let drawingIndex = localStorage.getItem("drawingIndex");
+// (num) 행 넘버
+let rowNum = Math.floor(drawingIndex/4);
+// (date) 현재 날짜 (초기값 설정)
+let currentDate = new Date('2020-06-19'); //초기값
+
+// 터치 이벤트 관련값
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
