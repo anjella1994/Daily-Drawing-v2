@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
 function reverseOrder() {
     if (!reverseOn) {
         //정배열일 때 역배열로 변경
-        calendarDivs.forEach((calendarDiv, i) => {
+        calendarBoxes.forEach((calendarBox, i) => {
             //순서 바꾸기
             let q = Math.floor(i / 4); //4로 나누었을 때 몫
             let r = i % 4; //4로 나누었을 때 나머지
             let newQ = 673 - q; //몫의 순서를 거꾸로 바꾸기 
             let newOrder = 4 * newQ + r; //몫 바뀌고 나머지는 그대로 
-            calendarDiv.style.order = newOrder;
+            calendarBox.style.order = newOrder;
             //월 구분선 수정
             firstBoxes.forEach((firstBox) => {firstBox.style.borderBottom = "2px solid #777";});
             lastBoxes.forEach((lastBox) => {lastBox.style.borderBottom = "1px solid #ccc";});
@@ -30,9 +30,9 @@ function reverseOrder() {
         });
     } else {
         //역배열일 때 정배열로 변경
-        calendarDivs.forEach((calendarDiv, i) => {
+        calendarBoxes.forEach((calendarBox, i) => {
             //순서 돌려놓기
-            calendarDiv.style.order = i;
+            calendarBox.style.order = i;
             //월 구분선 수정
             firstBoxes.forEach((firstBox) => {firstBox.style.borderBottom = "1px solid #ccc";});
             lastBoxes.forEach((lastBox) => {lastBox.style.borderBottom = "2px solid #777";});

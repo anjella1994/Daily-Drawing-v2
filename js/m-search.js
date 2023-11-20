@@ -10,7 +10,7 @@ viewAllBttn.addEventListener("click", viewAll);
 //행 토글 함수 (i : 행 넘버, displayType : "block" 또는 "none")
 function toggleRow (i, displayType) { 
     for (let j = i * 4; j < (i * 4 + 4); j++) {
-        calendarDivs[j].style.display = displayType;
+        calendarBoxes[j].style.display = displayType;
     }
 }
 
