@@ -63,10 +63,10 @@ function setNav(y) {
             break;
     }
     for (let i = 0; i < navYears.length; i++) {
-        navYears[i].style.color = i === (y - 2020) ? "#555" : "#ddd";
+        i === (y - 2020) ? navYears[i].classList.remove("inactive") : navYears[i].classList.add("inactive");
     }
     for (let i = 0; i < navMonths.length; i++) {
-        navMonths[i].style.color = activeMonths.includes(i) ? "#333" : "#ddd";
+        activeMonths.includes(i) ? navMonths[i].classList.remove("inactive") : navMonths[i].classList.add("inactive");
     }
 }
 

@@ -21,10 +21,12 @@ function updateCurrentDate(date) {
     //이전 날짜 스타일 및 내용 초기화 
     dateBoxes.forEach((dateBox) => {dateBox.textContent=""});
     dateBoxes.forEach((dateBox) => dateBox.classList.remove("active"));
+    dateBoxes.forEach((dateBox) => dateBox.classList.remove("pointer"));
     //시작 날짜 정한 다음 마지막 날까지 날짜 채우기
     let dateNum = (y == 2020 && m == 5) ? 19 : 1; 
     for (i = 0; i < filledBoxes.length; i++) {
         filledBoxes[i].textContent = dateNum;
+        filledBoxes[i].classList.add("pointer");
         dateNum++;
     }
     //현재 날짜 찾아서 스타일 입히기 
