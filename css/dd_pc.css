@@ -125,6 +125,10 @@ html div {
 .image div, .imageTitle { 
     z-index: 10;
 }
+/* 검색창 */
+#searchBar {
+    z-index: 8;
+}
 /* 캘린더 선 */
 #calendar div { 
     z-index: 5;
