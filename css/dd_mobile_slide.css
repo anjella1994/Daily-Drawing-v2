@@ -50,10 +50,14 @@ html div {
     border-bottom: 1px solid #777;
     background-color: #eee;
 }
+footer {
+    border-top: 1px solid #777;
+}
 #back {
     border-top: 1px solid #777;
     background-color: rgba(245,245,245,0.9);
 }
+
 
 /* 폰트 */
 #title {
